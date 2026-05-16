@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Culix Reinigung & Hauswartung – Zürich & Aargau</title>
+  <meta name="description" content="Culix Reinigung und Hauswartung – Ihr zuverlässiger Partner für professionelle Reinigung und Hauswartung in der Region Zürich und Aargau." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0f1f3d;
+      --navy-light: #1a3260;
+      --ice: #e8f4f8;
+      --sky: #c2dff0;
+      --accent: #2a7fc1;
+      --accent-bright: #3b9de0;
+      --gold: #c8a951;
+      --white: #ffffff;
+      --gray: #f5f7fa;
+      --text: #1a2640;
+      --muted: #6b7a91;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 6%;
+      background: rgba(15,31,61,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.35); }
+
+    .logo {
+      display: flex; align-items: center; gap: 0.7rem;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--accent), var(--gold));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem;
+    }
+    .logo-text { color: var(--white); }
+    .logo-text span { display: block; }
+    .logo-text .brand { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.03em; }
+    .logo-text .sub { font-size: 0.65rem; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sky); margin-top: -2px; }
+
+    nav ul { display: flex; gap: 2rem; list-style: none; }
+    nav ul a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.02em; transition: color 0.2s; }
+    nav ul a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent), #1d6fad);
+      color: var(--white) !important;
+      padding: 0.55rem 1.3rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: opacity 0.2s !important;
+    }
+    .nav-cta:hover { opacity: 0.88; color: var(--white) !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; transition: 0.3s; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(160deg, rgba(15,31,61,0.93) 0%, rgba(15,31,61,0.75) 60%, rgba(42,127,193,0.55) 100%),
+        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover no-repeat;
+      display: flex; align-items: center;
+      padding: 0 6%;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+      background: linear-gradient(to top, var(--white), transparent);
+    }
+
+    .hero-content { max-width: 680px; animation: fadeUp 0.9s ease both; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(200,169,81,0.18);
+      border: 1px solid rgba(200,169,81,0.45);
+      color: var(--gold);
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.12;
+      margin-bottom: 1.4rem;
+    }
+    h1 em { color: var(--gold); font-style: normal; }
+    .hero-desc {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.1rem;
+      line-height: 1.75;
+      margin-bottom: 2.4rem;
+      max-width: 520px;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-bright), var(--accent));
+      color: white; padding: 0.9rem 2rem;
+      border-radius: 8px; text-decoration: none;
+      font-weight: 600; font-size: 1rem;
+      box-shadow: 0 8px 24px rgba(42,127,193,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(42,127,193,0.55); }
+    .btn-secondary {
+      background: rgba(255,255,255,0.12); color: white;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      padding: 0.9rem 2rem; border-radius: 8px;
+      text-decoration: none; font-weight: 500; font-size: 1rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); border-color: rgba(255,255,255,0.6); }
+
+    .hero-stats {
+      position: absolute; bottom: 60px; right: 6%;
+      display: flex; gap: 2rem; z-index: 2;
+      animation: fadeUp 1.1s 0.3s ease both;
+    }
+    .stat {
+      text-align: center;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 1rem 1.4rem;
+    }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold); }
+    .stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.7); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+
+    /* ─── SECTIONS SHARED ─── */
+    section { padding: 6rem 6%; }
+    .section-tag {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-weight: 700; line-height: 1.2;
+      color: var(--navy); margin-bottom: 1.2rem;
+    }
+    .lead {
+      font-size: 1.05rem; color: var(--muted);
+      max-width: 560px; line-height: 1.75;
+    }
+
+    /* ─── LEISTUNGEN ─── */
+    #leistungen { background: var(--gray); }
+    .leistungen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.6rem; margin-top: 3rem;
+    }
+    .karte {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid rgba(0,0,0,0.07);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .karte::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--gold));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .karte:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(15,31,61,0.12); }
+    .karte:hover::before { transform: scaleX(1); }
+    .karte-icon {
+      width: 54px; height: 54px;
+      background: linear-gradient(135deg, var(--ice), var(--sky));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 1.2rem;
+    }
+    .karte h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--navy); }
+    .karte p { font-size: 0.92rem; color: var(--muted); line-height: 1.7; }
+
+    /* ─── VORTEILE ─── */
+    #vorteile {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: white;
+    }
+    #vorteile h2 { color: white; }
+    #vorteile .lead { color: rgba(255,255,255,0.7); }
+    .vorteile-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+    .vorteile-img {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      position: relative;
+    }
+    .vorteile-img img { width: 100%; height: 100%; object-fit: cover; }
+    .vorteile-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(42,127,193,0.3), transparent);
+      border-radius: 20px;
+    }
+    .vorteile-list { display: flex; flex-direction: column; gap: 1.4rem; }
+    .vorteil {
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .vorteil-check {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(42,127,193,0.2);
+      border: 1.5px solid rgba(42,127,193,0.5);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent-bright); font-size: 1.1rem;
+    }
+    .vorteil-text h4 { font-weight: 600; margin-bottom: 0.2rem; }
+    .vorteil-text p { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+    /* ─── REGIONEN ─── */
+    #regionen { background: white; }
+    .regionen-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 3rem;
+    }
+    .region-pill {
+      background: var(--ice);
+      border: 1.5px solid var(--sky);
+      border-radius: 12px;
+      padding: 1.1rem 1.4rem;
+      display: flex; align-items: center; gap: 0.8rem;
+      font-weight: 500; font-size: 0.95rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .region-pill:hover { background: var(--sky); border-color: var(--accent); }
+    .region-pill span:first-child { font-size: 1.3rem; }
+
+    /* ─── ABLAUF ─── */
+    #ablauf { background: var(--gray); }
+    .ablauf-steps { display: flex; gap: 0; margin-top: 3rem; position: relative; flex-wrap: wrap; }
+    .step { flex: 1; min-width: 200px; padding: 1.5rem; position: relative; text-align: center; }
+    .step:not(:last-child)::after {
+      content: '→';
+      position: absolute; right: -10px; top: 2rem;
+      font-size: 1.5rem; color: var(--sky);
+    }
+    .step-num {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--accent), var(--navy));
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 700;
+      margin: 0 auto 1rem;
+    }
+    .step h4 { font-weight: 600; margin-bottom: 0.4rem; }
+    .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials { background: white; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.6rem; margin-top: 3rem; }
+    .testimonial {
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 16px;
+      padding: 1.8rem;
+      position: relative;
+    }
+    .testimonial::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--sky); position: absolute; top: 0; left: 1.2rem; line-height: 1; }
+    .stars { color: var(--gold); font-size: 1rem; margin-bottom: 0.8rem; padding-top: 1rem; }
+    .testimonial p { font-size: 0.93rem; color: var(--muted); line-height: 1.75; font-style: italic; margin-bottom: 1.2rem; }
+    .testimonial-author { font-weight: 600; font-size: 0.9rem; }
+    .testimonial-author span { font-weight: 400; color: var(--muted); font-size: 0.82rem; }
+
+    /* ─── KONTAKT ─── */
+    #kontakt {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
+      color: white;
+    }
+    #kontakt h2 { color: white; }
+    #kontakt .lead { color: rgba(255,255,255,0.7); }
+    .kontakt-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+    .kontakt-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .kontakt-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .kontakt-icon {
+      width: 46px; height: 46px; flex-shrink: 0;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .kontakt-item h4 { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.2rem; }
+    .kontakt-item p, .kontakt-item a { color: white; font-size: 1rem; text-decoration: none; }
+    .kontakt-item a:hover { color: var(--gold); }
+
+    form { display: flex; flex-direction: column; gap: 1rem; }
+    form label { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.6); display: block; margin-bottom: 0.35rem; }
+    form input, form select, form textarea {
+      width: 100%; padding: 0.85rem 1.1rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: white; font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+      outline: none; transition: border-color 0.2s;
+    }
+    form input::placeholder, form textarea::placeholder { color: rgba(255,255,255,0.35); }
+    form input:focus, form select:focus, form textarea:focus { border-color: var(--accent-bright); }
+    form select option { background: var(--navy); }
+    form textarea { resize: vertical; min-height: 110px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .btn-submit {
+      background: linear-gradient(135deg, var(--gold), #a88530);
+      color: var(--navy); font-weight: 700;
+      padding: 1rem 2rem; border: none;
+      border-radius: 8px; font-size: 1rem;
+      cursor: pointer; font-family: 'DM Sans', sans-serif;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(200,169,81,0.4); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #070f1e;
+      color: rgba(255,255,255,0.55);
+      padding: 2.5rem 6%;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: 0.85rem;
+    }
+    footer a { color: rgba(255,255,255,0.55); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+    .footer-links { display: flex; gap: 2rem; }
+
+    /* ─── FLOATING PHONE ─── */
+    .floating-call {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
+      background: linear-gradient(135deg, var(--accent-bright), var(--accent));
+      color: white; border-radius: 999px;
+      padding: 0.85rem 1.5rem;
+      display: flex; align-items: center; gap: 0.6rem;
+      text-decoration: none; font-weight: 600;
+      box-shadow: 0 8px 30px rgba(42,127,193,0.5);
+      transition: transform 0.2s;
+      font-size: 0.95rem;
+    }
+    .floating-call:hover { transform: scale(1.05); }
+    .floating-call .ring { animation: ring 1.8s infinite; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes ring { 0%,100% { transform: rotate(0); } 15% { transform: rotate(15deg); } 30% { transform: rotate(-12deg); } 45% { transform: rotate(8deg); } 60% { transform: rotate(-5deg); } }
+
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav ul { display: none; }
+      .hamburger { display: flex; }
+      nav ul.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: var(--navy);
+        padding: 1.5rem 6%; gap: 1.2rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+      .hero-stats { display: none; }
+      .vorteile-layout, .kontakt-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+      .ablauf-steps { flex-direction: column; }
+      .step:not(:last-child)::after { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 4rem 5%; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a class="logo" href="#">
+    <div class="logo-icon">✨</div>
+    <div class="logo-text">
+      <span class="brand">Culix</span>
+      <span class="sub">Reinigung & Hauswartung</span>
+    </div>
+  </a>
+  <ul id="nav-menu">
+    <li><a href="#leistungen">Leistungen</a></li>
+    <li><a href="#vorteile">Über uns</a></li>
+    <li><a href="#regionen">Regionen</a></li>
+    <li><a href="#ablauf">Ablauf</a></li>
+    <li><a href="#testimonials">Referenzen</a></li>
+    <li><a href="#kontakt" class="nav-cta">Offerte anfragen</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">⭐ Ihr Partner in Zürich & Aargau</div>
+    <h1>Sauberkeit,<br/>die Sie <em>begeistert.</em></h1>
+    <p class="hero-desc">Culix steht für professionelle Reinigung und zuverlässige Hauswartung – für Privathaushalte, Büros, Gewerbe und Liegenschaften. Wir denken voraus, damit Sie sich zurücklehnen können.</p>
+    <div class="hero-btns">
+      <a href="#kontakt" class="btn-primary">Offerte einholen</a>
+      <a href="#leistungen" class="btn-secondary">Unsere Leistungen</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num" style="font-size:1.3rem;">Lokal &amp;<br/>persönlich</div>
+      <div class="stat-label">Ihr regionaler Partner</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Jahre Erfahrung</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Qualitätsversprechen</div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="leistungen">
+  <div class="section-tag">Was wir tun</div>
+  <h2>Unsere Leistungen</h2>
+  <p class="lead">Von der regelmässigen Unterhaltsreinigung bis zur kompletten Hauswartung – wir bieten alles aus einer Hand.</p>
+  <div class="leistungen-grid">
+    <div class="karte reveal">
+      <div class="karte-icon">🏠</div>
+      <h3>Haushaltsreinigung</h3>
+      <p>Gründliche und regelmässige Reinigung Ihrer Wohnung oder Ihres Hauses – diskret, verlässlich und auf höchstem Niveau.</p>
+    </div>
+    <div class="karte reveal">
+      <div class="karte-icon">🏢</div>
+      <h3>Büro- & Gewerbereinigung</h3>
+      <p>Saubere Arbeitsumgebungen fördern Produktivität. Wir reinigen Büros, Praxen und Gewerbeflächen – auch ausserhalb der Geschäftszeiten.</p>
+    </div>
+    <div class="karte reveal">
+      <div class="karte-icon">🏗️</div>
+      <h3>Unterhaltsreinigung</h3>
+      <p>Laufende Pflege Ihrer Liegenschaft: Treppenhäuser, Einstellhallen, Allgemeinbereiche – alles bleibt sauber und gepflegt.</p>
+    </div>
+    <div class="karte reveal">
+      <div class="karte-icon">🔑</div>
+      <h3>Endreinigung / Wohnungsübergabe</h3>
+      <p>Professionelle Endreinigung für einen reibungslosen Mieterwechsel. Wir sorgen dafür, dass die Kaution zurückkommt.</p>
+    </div>
+    <div class="karte reveal">
+      <div class="karte-icon">🛠️</div>
+      <h3>Hauswartung</h3>
+      <p>Wir übernehmen die vollständige Hauswartung Ihrer Liegenschaft: Kontrolle, Kleinreparaturen, Winterdienst, Gartenarbeiten und mehr.</p>
+    </div>
+    <div class="karte reveal">
+      <div class="karte-icon">❄️</div>
+      <h3>Winterdienst</h3>
+      <p>Schneeräumung, Salzen und Streudienst – damit Ihre Zugänge sicher und haftpflichtkonform sind, auch bei Glätte.</p>
+    </div>
+    <div class="karte reveal">
+      <div class="karte-icon">🌿</div>
+      <h3>Gartenunterhalt</h3>
+      <p>Rasenmähen, Hecken schneiden, Laub entfernen – wir halten Ihren Aussenbereich das ganze Jahr über gepflegt.</p>
+    </div>
+    <div class="karte reveal">
+      <div class="karte-icon">🪟</div>
+      <h3>Fensterreinigung</h3>
+      <p>Streifenfreie, glänzende Fenster – innen und aussen. Mit professionellem Equipment für beste Resultate.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VORTEILE -->
+<section id="vorteile">
+  <div class="section-tag">Warum Culix</div>
+  <h2>Unser Versprechen an Sie</h2>
+  <p class="lead">Wir sind mehr als ein Reinigungsunternehmen – wir sind Ihr verlässlicher Partner für alles rund um Ihre Liegenschaft.</p>
+  <div class="vorteile-layout">
+    <div class="vorteile-img reveal">
+      <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=800&q=80" alt="Professionelle Reinigung" />
+    </div>
+    <div class="vorteile-list reveal">
+      <div class="vorteil">
+        <div class="vorteil-check">✓</div>
+        <div class="vorteil-text">
+          <h4>Geprüftes & geschultes Personal</h4>
+          <p>Alle unsere Mitarbeitenden sind sorgfältig ausgewählt, geschult und kennen professionelle Reinigungsstandards.</p>
+        </div>
+      </div>
+      <div class="vorteil">
+        <div class="vorteil-check">✓</div>
+        <div class="vorteil-text">
+          <h4>Pünktlich & zuverlässig</h4>
+          <p>Wir erscheinen wann vereinbart – ohne Ausreden. Zuverlässigkeit ist unser Grundprinzip.</p>
+        </div>
+      </div>
+      <div class="vorteil">
+        <div class="vorteil-check">✓</div>
+        <div class="vorteil-text">
+          <h4>Umweltschonende Reinigungsmittel</h4>
+          <p>Wir setzen auf umweltfreundliche, zertifizierte Reinigungsprodukte – schonend für Mensch und Natur.</p>
+        </div>
+      </div>
+      <div class="vorteil">
+        <div class="vorteil-check">✓</div>
+        <div class="vorteil-text">
+          <h4>Vollversichert & haftpflichtversichert</h4>
+          <p>Sie sind auf der sicheren Seite: Culix ist vollständig versichert – für Ihre Sicherheit und unsere.</p>
+        </div>
+      </div>
+      <div class="vorteil">
+        <div class="vorteil-check">✓</div>
+        <div class="vorteil-text">
+          <h4>Flexible Termine & faire Preise</h4>
+          <p>Wir passen uns Ihrem Alltag an. Klare Offerten, keine versteckten Kosten.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONEN -->
+<section id="regionen">
+  <div class="section-tag">Unser Einsatzgebiet</div>
+  <h2>Wir sind in Ihrer Nähe</h2>
+  <p class="lead">Culix ist in der gesamten Region Zürich und Aargau aktiv. Hier ein Überblick der Gemeinden, die wir bedienen:</p>
+  <div class="regionen-grid reveal">
+    <div class="region-pill"><span>📍</span> Zürich</div>
+    <div class="region-pill"><span>📍</span> Winterthur</div>
+    <div class="region-pill"><span>📍</span> Baden</div>
+    <div class="region-pill"><span>📍</span> Aarau</div>
+    <div class="region-pill"><span>📍</span> Dietikon</div>
+    <div class="region-pill"><span>📍</span> Spreitenbach</div>
+    <div class="region-pill"><span>📍</span> Schlieren</div>
+    <div class="region-pill"><span>📍</span> Wettingen</div>
+    <div class="region-pill"><span>📍</span> Brugg</div>
+    <div class="region-pill"><span>📍</span> Aarau</div>
+    <div class="region-pill"><span>📍</span> Wohlen</div>
+    <div class="region-pill"><span>📍</span> Zug</div>
+  </div>
+  <p style="margin-top:1.8rem; color: var(--muted); font-size:0.9rem;">Ihre Gemeinde nicht dabei? <a href="#kontakt" style="color:var(--accent); font-weight:600;">Kontaktieren Sie uns</a> – wir sind flexibel.</p>
+</section>
+
+<!-- ABLAUF -->
+<section id="ablauf">
+  <div class="section-tag">So einfach geht's</div>
+  <h2>In 4 Schritten zu mehr Sauberkeit</h2>
+  <p class="lead">Unkompliziert, transparent und schnell – so läuft eine Zusammenarbeit mit Culix ab.</p>
+  <div class="ablauf-steps">
+    <div class="step reveal">
+      <div class="step-num">1</div>
+      <h4>Anfrage senden</h4>
+      <p>Füllen Sie unser Kontaktformular aus oder rufen Sie uns direkt an. Ganz ohne Verpflichtung.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">2</div>
+      <h4>Kostenlose Offerte</h4>
+      <p>Wir besichtigen Ihr Objekt (oder beraten telefonisch) und erstellen eine transparente Offerte.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">3</div>
+      <h4>Terminvereinbarung</h4>
+      <p>Nach Ihrer Bestätigung vereinbaren wir den Einsatz passend zu Ihren Wünschen.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">4</div>
+      <h4>Wir legen los!</h4>
+      <p>Unser Team erscheint pünktlich und erledigt den Auftrag zu Ihrer vollsten Zufriedenheit.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-tag">Kundenstimmen</div>
+  <h2>Was unsere Kunden sagen</h2>
+  <p class="lead">Kundenzufriedenheit ist unser wichtigstes Qualitätsmerkmal. Hier sind einige Stimmen aus der Region.</p>
+  <div class="testimonials-grid">
+    <div class="testimonial reveal">
+      <div class="stars">★★★★★</div>
+      <p>Culix reinigt unsere Büroräume seit über zwei Jahren. Immer pünktlich, immer sorgfältig – und bei Fragen sofort erreichbar. Absolut empfehlenswert!</p>
+      <div class="testimonial-author">Markus R. <span>– Geschäftsführer, Baden</span></div>
+    </div>
+    <div class="testimonial reveal">
+      <div class="stars">★★★★★</div>
+      <p>Die Endreinigung unserer Wohnung war makellos. Die Kaution wurde vollständig zurückerstattet. Danke Culix – ihr habt uns grossen Stress erspart!</p>
+      <div class="testimonial-author">Sandra K. <span>– Mieterin, Zürich</span></div>
+    </div>
+    <div class="testimonial reveal">
+      <div class="stars">★★★★★</div>
+      <p>Seit Culix die Hauswartung unserer Liegenschaft übernimmt, läuft alles reibungslos. Sehr professionell, faire Preise und immer ein offenes Ohr.</p>
+      <div class="testimonial-author">Thomas M. <span>– Liegenschaftsverwalter, Winterthur</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section id="kontakt">
+  <div class="section-tag">Kontakt</div>
+  <h2>Offerte anfragen</h2>
+  <p class="lead">Schreiben Sie uns oder rufen Sie direkt an – wir melden uns innerhalb von 24 Stunden.</p>
+  <div class="kontakt-layout">
+    <div class="kontakt-info reveal">
+      <div class="kontakt-item">
+        <div class="kontakt-icon">📞</div>
+        <div>
+          <h4>Telefon</h4>
+          <a href="tel:+41765008915">+41 76 500 89 15</a>
+        </div>
+      </div>
+      <div class="kontakt-item">
+        <div class="kontakt-icon">📧</div>
+        <div>
+          <h4>E-Mail</h4>
+          <a href="mailto:info@culix.ch">info@culix.ch</a>
+        </div>
+      </div>
+      <div class="kontakt-item">
+        <div class="kontakt-icon">📍</div>
+        <div>
+          <h4>Einsatzgebiet</h4>
+          <p>Region Zürich & Aargau</p>
+        </div>
+      </div>
+      <div class="kontakt-item">
+        <div class="kontakt-icon">🕐</div>
+        <div>
+          <h4>Erreichbarkeit</h4>
+          <p>Mo–Fr 07:00–19:00 Uhr<br/>Sa 08:00–14:00 Uhr</p>
+        </div>
+      </div>
+    </div>
+    <form class="reveal" onsubmit="submitForm(event)">
+      <div class="form-row">
+        <div>
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" placeholder="Max Muster" required />
+        </div>
+        <div>
+          <label for="telefon">Telefon</label>
+          <input type="tel" id="telefon" name="telefon" placeholder="+41 79 000 00 00" />
+        </div>
+      </div>
+      <div>
+        <label for="email">E-Mail *</label>
+        <input type="email" id="email" name="email" placeholder="max@muster.ch" required />
+      </div>
+      <div>
+        <label for="leistung">Gewünschte Leistung</label>
+        <select id="leistung" name="leistung">
+          <option value="">Bitte wählen...</option>
+          <option>Haushaltsreinigung</option>
+          <option>Büro- & Gewerbereinigung</option>
+          <option>Unterhaltsreinigung</option>
+          <option>Endreinigung / Wohnungsübergabe</option>
+          <option>Hauswartung</option>
+          <option>Winterdienst</option>
+          <option>Gartenunterhalt</option>
+          <option>Fensterreinigung</option>
+          <option>Anderes</option>
+        </select>
+      </div>
+      <div>
+        <label for="nachricht">Nachricht *</label>
+        <textarea id="nachricht" name="nachricht" placeholder="Beschreiben Sie kurz Ihr Objekt und Ihre Wünsche..." required></textarea>
+      </div>
+      <button type="submit" class="btn-submit">✉️ Offerte anfragen</button>
+      <p id="form-success" style="display:none; color:#4cde8e; margin-top:0.5rem; font-size:0.9rem;">✓ Vielen Dank! Wir melden uns bald bei Ihnen.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <strong style="color:white;">Culix Reinigung & Hauswartung</strong><br/>
+    Region Zürich & Aargau, Schweiz<br/>
+    © 2025 Culix. Alle Rechte vorbehalten.
+  </div>
+  <div class="footer-links">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="mailto:info@culix.ch">info@culix.ch</a>
+  </div>
+</footer>
+
+<!-- FLOATING CALL BUTTON -->
+<a href="tel:+41765008915" class="floating-call">
+  <span class="ring">📞</span> Jetzt anrufen
+</a>
+
+<script>
+  // Smooth scroll nav highlight
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Hamburger menu
+  function toggleMenu() {
+    document.getElementById('nav-menu').classList.toggle('open');
+  }
+  document.querySelectorAll('#nav-menu a').forEach(a => a.addEventListener('click', () => {
+    document.getElementById('nav-menu').classList.remove('open');
+  }));
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form submit
+  function submitForm(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    setTimeout(() => document.getElementById('form-success').style.display = 'none', 5000);
+  }
+</script>
+</body>
+</html>
