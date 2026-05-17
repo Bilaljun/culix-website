@@ -12,17 +12,17 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy: #0f1f3d;
-      --navy-light: #1a3260;
-      --ice: #e8f4f8;
-      --sky: #c2dff0;
-      --accent: #2a7fc1;
-      --accent-bright: #3b9de0;
+      --navy: #1a3a2a;
+      --navy-light: #254d38;
+      --ice: #eaf4ee;
+      --sky: #b8ddc8;
+      --accent: #2e7d4f;
+      --accent-bright: #3da066;
       --gold: #c8a951;
       --white: #ffffff;
-      --gray: #f5f7fa;
-      --text: #1a2640;
-      --muted: #6b7a91;
+      --gray: #f4f7f5;
+      --text: #1a2e22;
+      --muted: #6b8576;
     }
 
     html { scroll-behavior: smooth; }
@@ -39,7 +39,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.1rem 6%;
-      background: rgba(15,31,61,0.97);
+      background: rgba(26,58,42,0.97);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,0.07);
       transition: box-shadow 0.3s;
@@ -68,7 +68,7 @@
     nav ul a:hover { color: var(--gold); }
 
     .nav-cta {
-      background: linear-gradient(135deg, var(--accent), #1d6fad);
+      background: linear-gradient(135deg, var(--accent), #1f5c38);
       color: var(--white) !important;
       padding: 0.55rem 1.3rem;
       border-radius: 6px;
@@ -84,8 +84,8 @@
     #hero {
       min-height: 100vh;
       background:
-        linear-gradient(160deg, rgba(15,31,61,0.93) 0%, rgba(15,31,61,0.75) 60%, rgba(42,127,193,0.55) 100%),
-        url('https://plus.unsplash.com/premium_photo-1676810459906-b269db9bd6e7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D0') center/cover no-repeat;
+        linear-gradient(160deg, rgba(26,58,42,0.93) 0%, rgba(37,77,56,0.80) 60%, rgba(46,125,79,0.60) 100%),
+        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover no-repeat;
       display: flex; align-items: center;
       padding: 0 6%;
       position: relative;
@@ -130,10 +130,10 @@
       color: white; padding: 0.9rem 2rem;
       border-radius: 8px; text-decoration: none;
       font-weight: 600; font-size: 1rem;
-      box-shadow: 0 8px 24px rgba(42,127,193,0.45);
+      box-shadow: 0 8px 24px rgba(46,125,79,0.45);
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(42,127,193,0.55); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(46,125,79,0.55); }
     .btn-secondary {
       background: rgba(255,255,255,0.12); color: white;
       border: 1.5px solid rgba(255,255,255,0.35);
@@ -214,7 +214,7 @@
 
     /* ─── VORTEILE ─── */
     #vorteile {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      background: linear-gradient(135deg, #1a3a2a 0%, #254d38 100%);
       color: white;
     }
     #vorteile h2 { color: white; }
@@ -278,7 +278,7 @@
     }
     .step-num {
       width: 56px; height: 56px;
-      background: linear-gradient(135deg, var(--accent), var(--navy));
+      background: linear-gradient(135deg, var(--accent), #1a3a2a);
       color: white;
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
@@ -306,7 +306,7 @@
 
     /* ─── KONTAKT ─── */
     #kontakt {
-      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
+      background: linear-gradient(160deg, #1a3a2a 0%, #254d38 100%);
       color: white;
     }
     #kontakt h2 { color: white; }
@@ -354,7 +354,7 @@
 
     /* ─── FOOTER ─── */
     footer {
-      background: #070f1e;
+      background: #0d1f16;
       color: rgba(255,255,255,0.55);
       padding: 2.5rem 6%;
       display: flex; justify-content: space-between; align-items: center;
@@ -373,7 +373,7 @@
       padding: 0.85rem 1.5rem;
       display: flex; align-items: center; gap: 0.6rem;
       text-decoration: none; font-weight: 600;
-      box-shadow: 0 8px 30px rgba(42,127,193,0.5);
+      box-shadow: 0 8px 30px rgba(46,125,79,0.5);
       transition: transform 0.2s;
       font-size: 0.95rem;
     }
@@ -728,7 +728,7 @@
   <div class="footer-links">
     <a href="#leistungen">Leistungen</a>
     <a href="#kontakt">Kontakt</a>
-    <a href="mailto:info@culix.ch">info@culix.ch</a>
+    <a href="mailto:culix.hauswartung@gmail.com">culix.hauswartung@gmail.com</a>
   </div>
 </footer>
 
