@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Culix Reinigung & Hauswartung – Zürich & Aargau</title>
-  <meta name="description" content="Culix Reinigung und Hauswartung – Ihr zuverlässiger Partner für professionelle Reinigung und Hauswartung in der Region Zürich und Aargau." />
+  <title>Culix Reinigung & Hauswartung</title>
+  <meta name="description" content="Culix Reinigung und Hauswartung – Ihr zuverlässiger Partner für professionelle Reinigung und Hauswartung ." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -114,11 +114,11 @@
     .leistungen-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
     .leistungen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
     .karte { background: var(--white); padding: 2rem 1.8rem; position: relative; transition: background 0.25s; cursor: default; }
-    .karte:hover { background: var(--navy); }
-    .karte:hover .karte-icon-wrap { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
-    .karte:hover h3, .karte:hover .karte-num { color: rgba(255,255,255,0.2); }
-    .karte:hover h3 { color: white; }
-    .karte:hover p { color: rgba(255,255,255,0.55); }
+    .karte:hover { background: #e8f1fb; }
+    .karte:hover .karte-icon-wrap { background: rgba(26,95,168,0.1); border-color: rgba(26,95,168,0.25); }
+    .karte:hover .karte-num { color: var(--blue); }
+    .karte:hover h3 { color: var(--navy); }
+    .karte:hover p { color: #4a5a70; }
     .karte-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--border); letter-spacing: 0.1em; margin-bottom: 1.5rem; transition: color 0.25s; }
     .karte-icon-wrap { width: 46px; height: 46px; border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; transition: background 0.25s, border-color 0.25s; }
     .karte-icon { font-size: 1.3rem; }
@@ -267,6 +267,38 @@
     .btn-kontakt-desc { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 2px; font-weight: 300; }
     .btn-kontakt-arrow { font-size: 1rem; color: rgba(255,255,255,0.25); }
 
+    /* ─── ICON GRID ─── */
+    .icons-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .icon-cell {
+      background: var(--off);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.5rem; padding: 1.4rem 0.5rem;
+      font-size: 1.8rem;
+      transition: background 0.2s;
+    }
+    .icon-cell:hover { background: #e8f1fb; }
+    .icon-cell span { font-size: 0.65rem; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; text-align: center; }
+    .vorteile-badge-inline {
+      background: var(--navy); color: white;
+      padding: 1rem 1.5rem; display: inline-flex; align-items: center; gap: 1rem;
+    }
+    .vorteile-badge-inline .vorteile-badge-num { font-size: 2rem; font-weight: 800; line-height: 1; }
+    .vorteile-badge-inline .vorteile-badge-txt { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+
+    /* ─── DISCLAIMER ─── */
+    .disclaimer {
+      background: #f0f2f5;
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 6%;
+      font-size: 0.72rem; color: #999;
+      line-height: 1.6; text-align: center;
+    }
+
     /* ─── FOOTER ─── */
     footer { background: var(--black); color: rgba(255,255,255,0.35); padding: 2rem 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; }
     footer a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
@@ -325,7 +357,6 @@
   <ul id="nav-menu">
     <li><a href="#leistungen">Leistungen</a></li>
     <li><a href="#vorteile">Über uns</a></li>
-    <li><a href="#regionen">Regionen</a></li>
     <li><a href="#ablauf">Ablauf</a></li>
     <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
   </ul>
@@ -339,7 +370,6 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-left">
-      <div class="hero-eyebrow"><span class="hero-eyebrow-line"></span>Region Zürich & Aargau</div>
       <h1>Professionelle<br/><span class="accent">Reinigung.</span><br/>Verlässlich.</h1>
       <p class="hero-desc">Culix steht für makellose Sauberkeit und zuverlässige Hauswartung – für Privathaushalte, Büros und Liegenschaften in der ganzen Region.</p>
       <div class="hero-btns">
@@ -366,7 +396,7 @@
     <span class="ticker-item"><span class="ticker-dot"></span>Winterdienst</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Gartenunterhalt</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Fensterreinigung</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Zürich & Aargau</span>
+    
     <span class="ticker-item"><span class="ticker-dot"></span>Haushaltsreinigung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Büroreinigung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Hauswartung</span>
@@ -374,7 +404,7 @@
     <span class="ticker-item"><span class="ticker-dot"></span>Winterdienst</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Gartenunterhalt</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Fensterreinigung</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Zürich & Aargau</span>
+    
   </div>
 </div>
 
@@ -387,22 +417,32 @@
     <div class="karte reveal"><div class="karte-num">01</div><div class="karte-icon-wrap"><div class="karte-icon">🏠</div></div><h3>Haushaltsreinigung</h3><p>Gründliche Reinigung Ihrer Wohnung oder Ihres Hauses – diskret, verlässlich, regelmässig.</p></div>
     <div class="karte reveal"><div class="karte-num">02</div><div class="karte-icon-wrap"><div class="karte-icon">🏢</div></div><h3>Büro & Gewerbe</h3><p>Saubere Arbeitsumgebungen für mehr Produktivität – auch ausserhalb der Geschäftszeiten.</p></div>
     <div class="karte reveal"><div class="karte-num">03</div><div class="karte-icon-wrap"><div class="karte-icon">🏗️</div></div><h3>Unterhaltsreinigung</h3><p>Treppenhäuser, Einstellhallen und Allgemeinbereiche – laufend gepflegt.</p></div>
-    <div class="karte reveal"><div class="karte-num">04</div><div class="karte-icon-wrap"><div class="karte-icon">🔑</div></div><h3>Endreinigung</h3><p>Professionelle Wohnungsübergabe – damit die Kaution vollständig zurückkommt.</p></div>
+    <div class="karte reveal"><div class="karte-num">04</div><div class="karte-icon-wrap"><div class="karte-icon">🔑</div></div><h3>Endreinigung</h3><p>Professionelle Wohnungsübergabe auf höchstem Niveau – sauber, gründlich und termingerecht.</p></div>
     <div class="karte reveal"><div class="karte-num">05</div><div class="karte-icon-wrap"><div class="karte-icon">🛠️</div></div><h3>Hauswartung</h3><p>Vollständige Betreuung Ihrer Liegenschaft: Kontrolle, Kleinreparaturen, Koordination.</p></div>
-    <div class="karte reveal"><div class="karte-num">06</div><div class="karte-icon-wrap"><div class="karte-icon">❄️</div></div><h3>Winterdienst</h3><p>Schneeräumung und Streudienst – sicher und haftpflichtkonform.</p></div>
+    <div class="karte reveal"><div class="karte-num">06</div><div class="karte-icon-wrap"><div class="karte-icon">❄️</div></div><h3>Winterdienst</h3><p>Schneeräumung und Streudienst – zuverlässig, sicher und pünktlich.</p></div>
     <div class="karte reveal"><div class="karte-num">07</div><div class="karte-icon-wrap"><div class="karte-icon">🌿</div></div><h3>Gartenunterhalt</h3><p>Rasenmähen, Hecken schneiden, Laub – das ganze Jahr gepflegt.</p></div>
     <div class="karte reveal"><div class="karte-num">08</div><div class="karte-icon-wrap"><div class="karte-icon">🪟</div></div><h3>Fensterreinigung</h3><p>Streifenfreie, glänzende Fenster – innen und aussen, professionell.</p></div>
-    <div class="karte reveal"><div class="karte-num">09</div><div class="karte-icon-wrap"><div class="karte-icon">🛋️</div></div><h3>Polsterreinigung</h3><p>Sofas, Sessel und Matratzen professionell gereinigt – für frische Luft und hygienisches Wohlbefinden.</p></div>
+    <div class="karte reveal"><div class="karte-num">09</div><div class="karte-icon-wrap"><div class="karte-icon">🛋️</div></div><h3>Polsterreinigung</h3><p>Sofas und Sessel professionell gereinigt – für frische Luft und hygienisches Wohlbefinden.</p></div>
   </div>
 </section>
 
 <section id="vorteile">
   <div class="vorteile-layout">
-    <div class="vorteile-img-wrap reveal">
-      <div class="vorteile-img">
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Professionelles Reinigungsteam" />
+    <div class="reveal" style="display:flex; flex-direction:column; justify-content:center; gap:2rem;">
+      <div style="display:flex; flex-direction:column; gap:1.5rem;">
+        <div style="padding:2rem; background:var(--off); border:1px solid var(--border); border-radius:4px;">
+          <div style="font-size:3rem; font-weight:800; color:var(--navy); line-height:1;">15+</div>
+          <div style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-top:0.4rem;">Jahre Erfahrung</div>
+        </div>
+        <div style="padding:2rem; background:var(--navy); border-radius:4px;">
+          <div style="font-size:3rem; font-weight:800; color:white; line-height:1;">100%</div>
+          <div style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:0.4rem;">Qualitätsversprechen</div>
+        </div>
+        <div style="padding:2rem; background:var(--blue); border-radius:4px;">
+          <div style="font-size:1.6rem; font-weight:800; color:white; line-height:1.2;">Lokal &<br/>persönlich</div>
+          <div style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-top:0.4rem;">Ihr Partner vor Ort</div>
+        </div>
       </div>
-      <div class="vorteile-badge"><div class="vorteile-badge-num">15+</div><div class="vorteile-badge-txt">Jahre Erfahrung</div></div>
     </div>
     <div class="reveal">
       <div class="eyebrow">Über uns</div>
@@ -418,100 +458,6 @@
   </div>
 </section>
 
-<section id="regionen">
-  <div class="regionen-header">
-    <div>
-      <div class="eyebrow" style="color:var(--blue-lt);">Einsatzgebiet</div>
-      <h2>Wir kommen zu Ihnen</h2>
-    </div>
-  </div>
-
-  <div class="regionen-intro">
-    <div class="regionen-stat">
-      <span class="regionen-stat-num">12+</span>
-      <span class="regionen-stat-label">Gemeinden</span>
-    </div>
-    <div class="regionen-stat-divider"></div>
-    <div class="regionen-stat">
-      <span class="regionen-stat-num">2</span>
-      <span class="regionen-stat-label">Kantone</span>
-    </div>
-    <div class="regionen-stat-divider"></div>
-    <div class="regionen-stat">
-      <span class="regionen-stat-num">~50km</span>
-      <span class="regionen-stat-label">Radius</span>
-    </div>
-  </div>
-
-  <div class="regionen-grid reveal">
-    <div class="region-item">
-      <div class="region-top"><span class="region-pin">📍</span><span class="region-arrow">↗</span></div>
-      <div class="region-name">Zürich</div>
-      <div class="region-sub">Kanton Zürich</div>
-    </div>
-    <div class="region-item">
-      <div class="region-top"><span class="region-pin">📍</span><span class="region-arrow">↗</span></div>
-      <div class="region-name">Winterthur</div>
-      <div class="region-sub">Kanton Zürich</div>
-    </div>
-    <div class="region-item">
-      <div class="region-top"><span class="region-pin">📍</span><span class="region-arrow">↗</span></div>
-      <div class="region-name">Dietikon</div>
-      <div class="region-sub">Kanton Zürich</div>
-    </div>
-    <div class="region-item">
-      <div class="region-top"><span class="region-pin">📍</span><span class="region-arrow">↗</span></div>
-      <div class="region-name">Schlieren</div>
-      <div class="region-sub">Kanton Zürich</div>
-    </div>
-    <div class="region-item">
-      <div class="region-top"><span class="region-pin">📍</span><span class="region-arrow">↗</span></div>
-      <div class="region-name">Baden</div>
-      <div class="region-sub">Kanton Aargau</div>
-    </div>
-    <div class="region-item">
-      <div class="region-top"><span class="region-pin">📍</span><span class="region-arrow">↗</span></div>
-      <div class="region-name">Spreitenbach</div>
-      <div class="region-sub">Kanton Aargau</div>
-    </div>
-    <div class="region-item">
-      <div class="region-top"><span class="region-pin">📍</span><span class="region-arrow">↗</span></div>
-      <div class="region-name">Wettingen</div>
-      <div class="region-sub">Kanton Aargau</div>
-    </div>
-    <div class="region-item">
-      <div class="region-top"><span class="region-pin">📍</span><span class="region-arrow">↗</span></div>
-      <div class="region-name">Brugg</div>
-      <div class="region-sub">Kanton Aargau</div>
-    </div>
-    <div class="region-item">
-      <div class="region-top"><span class="region-pin">📍</span><span class="region-arrow">↗</span></div>
-      <div class="region-name">Aarau</div>
-      <div class="region-sub">Kanton Aargau</div>
-    </div>
-    <div class="region-item">
-      <div class="region-top"><span class="region-pin">📍</span><span class="region-arrow">↗</span></div>
-      <div class="region-name">Wohlen</div>
-      <div class="region-sub">Kanton Aargau</div>
-    </div>
-    <div class="region-item">
-      <div class="region-top"><span class="region-pin">📍</span><span class="region-arrow">↗</span></div>
-      <div class="region-name">Zug</div>
-      <div class="region-sub">Kanton Zug</div>
-    </div>
-    <div class="region-item" style="background:rgba(43,127,212,0.12); border-color:rgba(43,127,212,0.3);">
-      <div class="region-top"><span class="region-pin">➕</span></div>
-      <div class="region-name">Ihre Gemeinde?</div>
-      <div class="region-sub">Einfach anfragen</div>
-    </div>
-  </div>
-
-  <div class="region-cta">
-    <span class="region-cta-text">Ihre Gemeinde nicht dabei?</span>
-    <a href="#kontakt" class="region-cta-link">📞 Jetzt anfragen →</a>
-  </div>
-</section>
-
 <section id="ablauf">
   <div class="eyebrow">So funktioniert's</div>
   <h2>In 4 Schritten zu mehr Sauberkeit</h2>
@@ -520,16 +466,6 @@
     <div class="step reveal"><div class="step-num">02</div><div class="step-bar"></div><h4>Kostenlose Offerte</h4><p>Wir besichtigen Ihr Objekt und erstellen eine transparente Offerte.</p></div>
     <div class="step reveal"><div class="step-num">03</div><div class="step-bar"></div><h4>Terminvereinbarung</h4><p>Nach Bestätigung vereinbaren wir den Einsatz passend zu Ihren Wünschen.</p></div>
     <div class="step reveal"><div class="step-num">04</div><div class="step-bar"></div><h4>Wir legen los</h4><p>Unser Team erscheint pünktlich und erledigt alles zu Ihrer Zufriedenheit.</p></div>
-  </div>
-</section>
-
-<section id="testimonials">
-  <div class="eyebrow">Referenzen</div>
-  <h2>Was Kunden sagen</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial reveal"><div class="t-stars">★★★★★</div><p>Culix reinigt unsere Büroräume seit über zwei Jahren. Immer pünktlich, immer sorgfältig – absolut empfehlenswert.</p><div class="t-author">Markus R.</div><div class="t-location">Geschäftsführer, Baden</div></div>
-    <div class="testimonial reveal"><div class="t-stars">★★★★★</div><p>Die Endreinigung war makellos. Die Kaution wurde vollständig zurückerstattet. Culix hat uns grossen Stress erspart!</p><div class="t-author">Sandra K.</div><div class="t-location">Mieterin, Zürich</div></div>
-    <div class="testimonial reveal"><div class="t-stars">★★★★★</div><p>Sehr professionell, faire Preise und immer ein offenes Ohr. Seit Culix die Hauswartung übernimmt, läuft alles reibungslos.</p><div class="t-author">Thomas M.</div><div class="t-location">Liegenschaftsverwalter, Winterthur</div></div>
   </div>
 </section>
 
@@ -542,7 +478,6 @@
       <div class="kontakt-info">
         <div class="kontakt-item"><div class="kontakt-icon">📞</div><div><h4>Telefon</h4><a href="tel:+41765008915">076 500 89 15</a></div></div>
         <div class="kontakt-item"><div class="kontakt-icon">✉️</div><div><h4>E-Mail</h4><a href="mailto:culix.hauswartung@gmail.com">culix.hauswartung@gmail.com</a></div></div>
-        <div class="kontakt-item"><div class="kontakt-icon">📍</div><div><h4>Einsatzgebiet</h4><p>Region Zürich & Aargau</p></div></div>
         <div class="kontakt-item"><div class="kontakt-icon">🕐</div><div><h4>Erreichbarkeit</h4><p>Mo–Fr 07:00–19:00 · Sa 08:00–14:00</p></div></div>
       </div>
     </div>
@@ -569,9 +504,13 @@
   </div>
 </section>
 
+<div class="disclaimer">
+  Alle Angaben auf dieser Website dienen ausschliesslich der allgemeinen Information. Preise, Verfügbarkeit und Leistungsumfang werden individuell per Offerte vereinbart und sind nicht verbindlich. Culix Reinigung & Hauswartung übernimmt keine Haftung für Schäden, die aus der Nutzung dieser Website entstehen. Bilder: Unsplash.com (lizenzfrei). © 2025 Culix – Alle Rechte vorbehalten.
+</div>
+
 <footer>
-  <div><strong style="color:rgba(255,255,255,0.6);">Culix Reinigung & Hauswartung</strong><br/>Region Zürich & Aargau · © 2025 Culix</div>
-  <div class="footer-links"><a href="#leistungen">Leistungen</a><a href="#kontakt">Kontakt</a><a href="mailto:culix.hauswartung@gmail.com">E-Mail</a></div>
+  <div><strong style="color:rgba(255,255,255,0.6);">Culix Reinigung & Hauswartung</strong><br/>© 2025 Culix</div>
+  <div class="footer-links"><a href="#leistungen">Leistungen</a><a href="#kontakt">Kontakt</a><a href="mailto:culix.hauswartung@gmail.com">E-Mail</a><a href="datenschutz.html">Datenschutz</a></div>
 </footer>
 
 <a href="tel:+41765008915" class="floating-call"><span class="ring">📞</span> Jetzt anrufen</a>
