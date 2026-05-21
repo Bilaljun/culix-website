@@ -4,23 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Culix Reinigung & Hauswartung</title>
-  <meta name="description" content="Culix Reinigung und Hauswartung – Ihr zuverlässiger Partner für professionelle Reinigung und Hauswartung ." />
+  <meta name="description" content="Culix Reinigung und Hauswartung – professionelle Reinigung, Hauswartung und mehr. Jetzt Offerte anfragen." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --black:   #0a0a0a;
-      --navy:    #0d2137;
-      --blue:    #1a5fa8;
+      --black: #0a0a0a;
+      --navy:  #0d2137;
+      --blue:  #1a5fa8;
       --blue-lt: #2b7fd4;
-      --white:   #ffffff;
-      --off:     #f5f6f8;
-      --muted:   #6c7a8a;
-      --border:  #e2e6ea;
+      --white: #ffffff;
+      --off:   #f5f6f8;
+      --muted: #6c7a8a;
+      --border: #e2e6ea;
     }
-
     html { scroll-behavior: smooth; }
     body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--black); background: var(--white); overflow-x: hidden; }
 
@@ -28,276 +26,219 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 6%;
-      height: 68px;
+      padding: 0 6%; height: 68px;
       background: rgba(255,255,255,0.97);
       border-bottom: 1px solid var(--border);
       backdrop-filter: blur(12px);
       transition: box-shadow 0.3s;
     }
     nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
-
     .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .logo-mark {
-      width: 36px; height: 36px;
-      background: var(--navy);
-      border-radius: 6px;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .logo-mark { width: 36px; height: 36px; background: var(--navy); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
     .logo-mark svg { width: 20px; height: 20px; }
-    .logo-wordmark { display: flex; flex-direction: column; }
-    .logo-name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--navy); letter-spacing: -0.01em; line-height: 1; }
+    .logo-name { font-weight: 800; font-size: 1.1rem; color: var(--navy); letter-spacing: -0.01em; line-height: 1; }
     .logo-sub { font-size: 0.58rem; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; margin-top: 2px; }
-
-    nav ul { display: flex; gap: 2.2rem; list-style: none; }
-    nav ul a { color: var(--black); text-decoration: none; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.01em; transition: color 0.2s; }
+    nav ul { display: flex; gap: 2rem; list-style: none; }
+    nav ul a { color: var(--black); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
     nav ul a:hover { color: var(--blue); }
-    .nav-cta { background: var(--navy); color: var(--white) !important; padding: 0.55rem 1.3rem; border-radius: 4px; font-weight: 600 !important; font-size: 0.85rem !important; transition: background 0.2s !important; }
-    .nav-cta:hover { background: var(--blue) !important; color: var(--white) !important; }
-
+    .nav-cta { background: var(--navy); color: var(--white) !important; padding: 0.55rem 1.3rem; border-radius: 4px; font-weight: 600 !important; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--blue) !important; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
     .hamburger span { width: 22px; height: 1.5px; background: var(--black); }
 
     /* ─── HERO ─── */
-    #hero { height: 100vh; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
+    #hero {
+      height: 100vh; position: relative;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
     .hero-bg {
       position: absolute; inset: 0;
       background: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1800&q=85') center/cover no-repeat;
     }
     .hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.25) 40%, rgba(10,10,10,0.75) 80%, rgba(10,10,10,0.92) 100%);
+      background: linear-gradient(to right, rgba(10,10,10,0.88) 0%, rgba(10,10,10,0.55) 60%, rgba(10,10,10,0.2) 100%);
     }
     .hero-content {
       position: relative; z-index: 2;
-      padding: 0 6% 6rem; width: 100%;
-      display: grid; grid-template-columns: 1fr auto;
-      align-items: flex-end; gap: 2rem;
+      padding: 0 6%; max-width: 700px;
     }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(255,255,255,0.6); margin-bottom: 1.2rem;
+    .hero-tag {
+      display: inline-block;
+      background: var(--blue);
+      color: white;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 2px;
+      margin-bottom: 1.5rem;
     }
-    .hero-eyebrow-line { width: 28px; height: 1px; background: var(--blue-lt); }
-    h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 800; color: var(--white); line-height: 1.0; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
-    h1 .accent { color: var(--blue-lt); }
-    .hero-desc { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.75; max-width: 480px; margin-bottom: 2.2rem; font-weight: 300; }
+    h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800; color: white;
+      line-height: 1.05; letter-spacing: -0.03em;
+      margin-bottom: 1.2rem;
+    }
+    h1 span { color: var(--blue-lt); }
+    .hero-desc {
+      font-size: 1.05rem; color: rgba(255,255,255,0.72);
+      line-height: 1.75; max-width: 500px;
+      margin-bottom: 2.5rem; font-weight: 300;
+    }
     .hero-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-    .btn-primary { background: var(--blue); color: white; padding: 0.85rem 1.8rem; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.02em; transition: background 0.2s; }
-    .btn-primary:hover { background: var(--blue-lt); }
-    .btn-outline { background: transparent; color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.85rem 1.8rem; border-radius: 4px; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: border-color 0.2s, background 0.2s; }
-    .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.07); }
-
-    .hero-stats { display: flex; flex-direction: column; gap: 1.5rem; align-items: flex-end; padding-bottom: 0.5rem; }
-    .hero-stat { text-align: right; }
-    .hero-stat-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; font-weight: 800; color: white; line-height: 1; }
-    .hero-stat-label { font-size: 0.7rem; font-weight: 400; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 3px; }
-    .hero-stat-divider { width: 40px; height: 1px; background: rgba(255,255,255,0.2); margin-left: auto; }
+    .btn-main {
+      background: var(--blue); color: white;
+      padding: 1rem 2rem; border-radius: 4px;
+      text-decoration: none; font-weight: 700; font-size: 0.95rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-main:hover { background: var(--blue-lt); transform: translateY(-1px); }
+    .btn-ghost {
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: white; padding: 1rem 2rem; border-radius: 4px;
+      text-decoration: none; font-weight: 500; font-size: 0.95rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.18); border-color: white; }
 
     /* ─── TICKER ─── */
-    .ticker { background: var(--navy); color: rgba(255,255,255,0.55); padding: 0.9rem 0; overflow: hidden; white-space: nowrap; }
-    .ticker-inner { display: inline-flex; animation: ticker 28s linear infinite; }
-    .ticker-item { display: inline-flex; align-items: center; gap: 1.5rem; padding: 0 2rem; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; }
+    .ticker { background: var(--navy); padding: 0.85rem 0; overflow: hidden; white-space: nowrap; }
+    .ticker-inner { display: inline-flex; animation: ticker 30s linear infinite; }
+    .ticker-item { display: inline-flex; align-items: center; gap: 1.5rem; padding: 0 2rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
     .ticker-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--blue-lt); flex-shrink: 0; }
     @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* ─── SECTIONS ─── */
     section { padding: 6rem 6%; }
-    .eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
-    .eyebrow::after { content: ''; flex: 0 0 28px; height: 1px; background: var(--blue); }
-    h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--navy); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
-    .lead { font-size: 1rem; color: var(--muted); max-width: 520px; line-height: 1.75; font-weight: 300; }
+    .section-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; }
+    .section-tag::after { content: ''; flex: 0 0 28px; height: 1.5px; background: var(--blue); }
+    h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 800; color: var(--navy); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .lead { font-size: 1rem; color: var(--muted); max-width: 560px; line-height: 1.75; font-weight: 300; }
 
-    /* ─── LEISTUNGEN ─── */
-    #leistungen { background: var(--off); }
-    .leistungen-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
+    /* ─── 3 HAUPTLEISTUNGEN (ALFA-Stil) ─── */
+    #hauptleistungen { background: var(--off); padding-top: 5rem; padding-bottom: 5rem; }
+    .haupt-header { text-align: center; margin-bottom: 3rem; }
+    .haupt-header .lead { margin: 0 auto; }
+    .haupt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .haupt-card {
+      position: relative; border-radius: 6px; overflow: hidden;
+      aspect-ratio: 3/4; cursor: default;
+    }
+    .haupt-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .haupt-card:hover img { transform: scale(1.05); }
+    .haupt-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.3) 50%, transparent 100%);
+      transition: background 0.3s;
+    }
+    .haupt-card:hover .haupt-overlay { background: linear-gradient(to top, rgba(13,33,55,0.92) 0%, rgba(13,33,55,0.5) 60%, rgba(13,33,55,0.1) 100%); }
+    .haupt-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.8rem; }
+    .haupt-icon { font-size: 2rem; margin-bottom: 0.6rem; display: block; }
+    .haupt-title { font-size: 1.3rem; font-weight: 800; color: white; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
+    .haupt-desc { font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.6; font-weight: 300; }
+    .haupt-line { width: 32px; height: 2px; background: var(--blue-lt); margin-bottom: 0.8rem; }
+
+    /* ─── ALLE LEISTUNGEN ─── */
+    #leistungen { background: white; }
+    .leistungen-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
     .leistungen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .karte { background: var(--white); padding: 2rem 1.8rem; position: relative; transition: background 0.25s; cursor: default; }
+    .karte { background: white; padding: 2rem 1.8rem; transition: background 0.25s; }
     .karte:hover { background: #e8f1fb; }
-    .karte:hover .karte-icon-wrap { background: rgba(26,95,168,0.1); border-color: rgba(26,95,168,0.25); }
+    .karte-num { font-size: 0.68rem; font-weight: 700; color: var(--border); letter-spacing: 0.1em; margin-bottom: 1.2rem; transition: color 0.25s; }
     .karte:hover .karte-num { color: var(--blue); }
-    .karte:hover h3 { color: var(--navy); }
-    .karte:hover p { color: #4a5a70; }
-    .karte-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--border); letter-spacing: 0.1em; margin-bottom: 1.5rem; transition: color 0.25s; }
-    .karte-icon-wrap { width: 46px; height: 46px; border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; transition: background 0.25s, border-color 0.25s; }
+    .karte-icon-wrap { width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; transition: background 0.25s, border-color 0.25s; }
+    .karte:hover .karte-icon-wrap { background: rgba(26,95,168,0.08); border-color: rgba(26,95,168,0.2); }
     .karte-icon { font-size: 1.3rem; }
-    .karte h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.6rem; transition: color 0.25s; letter-spacing: -0.01em; }
-    .karte p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; transition: color 0.25s; font-weight: 300; }
+    .karte h3 { font-size: 0.98rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .karte p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
 
-    /* ─── VORTEILE ─── */
-    #vorteile { background: var(--white); }
+    /* ─── WARUM CULIX ─── */
+    #vorteile { background: var(--navy); }
+    #vorteile h2 { color: white; }
+    #vorteile .lead { color: rgba(255,255,255,0.5); }
     .vorteile-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3rem; }
-    .vorteile-img-wrap { position: relative; }
-    .vorteile-img { aspect-ratio: 3/4; overflow: hidden; border-radius: 2px; }
-    .vorteile-img img { width: 100%; height: 100%; object-fit: cover; }
-    .vorteile-badge { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--navy); color: white; padding: 1.5rem; width: 140px; text-align: center; }
-    .vorteile-badge-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1; }
-    .vorteile-badge-txt { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-top: 4px; }
+    .vorteile-stats { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); }
+    .v-stat { padding: 2rem; background: rgba(255,255,255,0.02); transition: background 0.2s; }
+    .v-stat:hover { background: rgba(43,127,212,0.12); }
+    .v-stat-num { font-size: 2.8rem; font-weight: 800; color: white; line-height: 1; }
+    .v-stat-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px; }
     .vorteile-list { display: flex; flex-direction: column; }
-    .vorteil { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .vorteil { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); align-items: flex-start; }
     .vorteil:first-child { padding-top: 0; }
-    .vorteil-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.7rem; font-weight: 700; color: var(--blue); letter-spacing: 0.1em; padding-top: 3px; flex-shrink: 0; }
-    .vorteil h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; color: var(--navy); }
-    .vorteil p { font-size: 0.87rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
-
-    /* ─── REGIONEN ─── */
-    #regionen {
-      background: var(--navy);
-      position: relative; overflow: hidden;
-    }
-    #regionen::before {
-      content: '';
-      position: absolute; top: -120px; right: -120px;
-      width: 500px; height: 500px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(43,127,212,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    #regionen::after {
-      content: '';
-      position: absolute; bottom: -80px; left: -80px;
-      width: 350px; height: 350px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(43,127,212,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    #regionen h2 { color: white; }
-    #regionen .lead { color: rgba(255,255,255,0.5); }
-    .regionen-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem; }
-
-    .regionen-intro {
-      display: flex; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap;
-    }
-    .regionen-stat {
-      display: flex; flex-direction: column;
-    }
-    .regionen-stat-num {
-      font-size: 2.5rem; font-weight: 800; color: white; line-height: 1;
-    }
-    .regionen-stat-label {
-      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
-      text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px;
-    }
-    .regionen-stat-divider { width: 1px; background: rgba(255,255,255,0.1); align-self: stretch; }
-
-    .regionen-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-    .region-item {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      padding: 1.3rem 1.4rem;
-      display: flex; flex-direction: column; gap: 0.5rem;
-      transition: background 0.25s, border-color 0.25s, transform 0.25s;
-      cursor: default;
-    }
-    .region-item:hover {
-      background: var(--blue);
-      border-color: var(--blue);
-      transform: translateY(-3px);
-    }
-    .region-top { display: flex; align-items: center; justify-content: space-between; }
-    .region-pin { font-size: 1.1rem; }
-    .region-arrow { font-size: 0.7rem; color: rgba(255,255,255,0.2); transition: color 0.2s; }
-    .region-item:hover .region-arrow { color: rgba(255,255,255,0.7); }
-    .region-name { font-size: 0.95rem; font-weight: 600; color: white; }
-    .region-sub { font-size: 0.7rem; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
-    .region-item:hover .region-sub { color: rgba(255,255,255,0.6); }
-
-    .region-cta {
-      margin-top: 2.5rem;
-      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
-    }
-    .region-cta-text { font-size: 0.9rem; color: rgba(255,255,255,0.45); }
-    .region-cta-link {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(43,127,212,0.2); border: 1px solid rgba(43,127,212,0.4);
-      color: var(--blue-lt); text-decoration: none;
-      padding: 0.6rem 1.2rem; border-radius: 6px;
-      font-size: 0.85rem; font-weight: 600;
-      transition: background 0.2s;
-    }
-    .region-cta-link:hover { background: rgba(43,127,212,0.35); }
+    .vorteil-num { font-size: 0.68rem; font-weight: 700; color: var(--blue-lt); letter-spacing: 0.1em; padding-top: 3px; flex-shrink: 0; }
+    .vorteil h4 { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; color: white; }
+    .vorteil p { font-size: 0.87rem; color: rgba(255,255,255,0.5); line-height: 1.65; font-weight: 300; }
 
     /* ─── ABLAUF ─── */
     #ablauf { background: var(--off); }
-    .ablauf-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 3rem; border: 1px solid var(--border); }
-    .step { padding: 2.5rem 2rem; border-right: 1px solid var(--border); }
+    .ablauf-intro { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .ablauf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); }
+    .step { padding: 2.5rem 2rem; border-right: 1px solid var(--border); position: relative; }
     .step:last-child { border-right: none; }
-    .step-num { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 3rem; font-weight: 800; color: var(--border); line-height: 1; margin-bottom: 1.2rem; }
-    .step h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--navy); margin-bottom: 0.5rem; }
-    .step p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+    .step-num { font-size: 4rem; font-weight: 800; color: var(--border); line-height: 1; margin-bottom: 1.2rem; }
     .step-bar { width: 28px; height: 2px; background: var(--blue); margin-bottom: 1rem; }
+    .step h4 { font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 0.5rem; }
+    .step p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
 
-    /* ─── TESTIMONIALS ─── */
-    #testimonials { background: var(--white); }
-    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
-    .testimonial { background: white; padding: 2rem; }
-    .t-stars { color: var(--blue); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
-    .testimonial p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; font-weight: 300; margin-bottom: 1.5rem; font-style: italic; }
-    .t-author { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--navy); }
-    .t-location { font-size: 0.75rem; color: var(--muted); font-weight: 400; margin-top: 2px; }
+    /* ─── ANRUF CTA (wie ALFA) ─── */
+    #cta {
+      background: var(--blue);
+      padding: 5rem 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 2rem;
+    }
+    .cta-left h2 { color: white; margin-bottom: 0.5rem; }
+    .cta-left p { color: rgba(255,255,255,0.7); font-size: 1rem; font-weight: 300; }
+    .cta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
+    .cta-phone {
+      display: flex; align-items: center; gap: 1rem;
+      background: white; border-radius: 6px;
+      padding: 1.2rem 2rem; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-phone:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.2); }
+    .cta-phone-icon { font-size: 1.8rem; animation: ring 2s infinite; }
+    .cta-phone-num { font-size: 1.4rem; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
+    .cta-phone-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 1px; }
+    .cta-wa {
+      display: flex; align-items: center; gap: 0.6rem;
+      background: #25d366; color: white; border-radius: 4px;
+      padding: 0.75rem 1.5rem; text-decoration: none;
+      font-weight: 700; font-size: 0.88rem;
+      transition: opacity 0.2s;
+    }
+    .cta-wa:hover { opacity: 0.88; }
+    @keyframes ring { 0%,100%{transform:rotate(0)} 10%{transform:rotate(12deg)} 20%{transform:rotate(-10deg)} 30%{transform:rotate(6deg)} 40%{transform:rotate(-3deg)} 50%{transform:rotate(0)} }
 
     /* ─── KONTAKT ─── */
     #kontakt { background: var(--navy); }
-    .kontakt-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; align-items: start; }
     #kontakt h2 { color: white; }
     #kontakt .lead { color: rgba(255,255,255,0.5); }
-    .kontakt-info { display: flex; flex-direction: column; margin-top: 2.5rem; }
-    .kontakt-item { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .kontakt-icon { width: 38px; height: 38px; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
-    .kontakt-item h4 { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 3px; }
-    .kontakt-item p, .kontakt-item a { color: rgba(255,255,255,0.8); font-size: 0.95rem; text-decoration: none; }
+    .kontakt-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; }
+    .kontakt-info { display: flex; flex-direction: column; }
+    .kontakt-item { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .kontakt-icon { width: 36px; height: 36px; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+    .kontakt-item h4 { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 3px; }
+    .kontakt-item p, .kontakt-item a { color: rgba(255,255,255,0.8); font-size: 0.93rem; text-decoration: none; }
     .kontakt-item a:hover { color: white; }
-
-    .kontakt-cta-text { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: 1.2rem; font-weight: 300; line-height: 1.6; }
-    .kontakt-buttons { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 2.5rem; }
-    .btn-kontakt { display: flex; align-items: center; gap: 1.2rem; padding: 1.2rem 1.4rem; border-radius: 4px; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: border-color 0.2s, background 0.2s; }
-    .btn-whatsapp { background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.25); }
-    .btn-whatsapp:hover { background: rgba(37,211,102,0.18); border-color: rgba(37,211,102,0.4); }
-    .btn-telefon { background: rgba(43,127,212,0.1); border-color: rgba(43,127,212,0.25); }
-    .btn-telefon:hover { background: rgba(43,127,212,0.18); border-color: rgba(43,127,212,0.4); }
-    .btn-email { background: rgba(255,255,255,0.04); }
-    .btn-email:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
-    .btn-kontakt-icon { font-size: 1.4rem; flex-shrink: 0; width: 30px; text-align: center; }
+    .kontakt-buttons { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0; }
+    .kontakt-cta-text { color: rgba(255,255,255,0.45); font-size: 0.88rem; margin-bottom: 1rem; font-weight: 300; line-height: 1.6; }
+    .btn-kontakt { display: flex; align-items: center; gap: 1.2rem; padding: 1.1rem 1.3rem; border-radius: 4px; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: border-color 0.2s, background 0.2s; }
+    .btn-wa { background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.25); }
+    .btn-wa:hover { background: rgba(37,211,102,0.18); border-color: rgba(37,211,102,0.4); }
+    .btn-tel { background: rgba(43,127,212,0.1); border-color: rgba(43,127,212,0.25); }
+    .btn-tel:hover { background: rgba(43,127,212,0.18); }
+    .btn-em { background: rgba(255,255,255,0.04); }
+    .btn-em:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+    .btn-kontakt-icon { font-size: 1.3rem; flex-shrink: 0; width: 28px; text-align: center; }
     .btn-kontakt-body { display: flex; flex-direction: column; flex: 1; }
-    .btn-kontakt-label { font-size: 0.95rem; font-weight: 600; color: white; font-family: 'Plus Jakarta Sans', sans-serif; }
-    .btn-kontakt-desc { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 2px; font-weight: 300; }
-    .btn-kontakt-arrow { font-size: 1rem; color: rgba(255,255,255,0.25); }
-
-    /* ─── ICON GRID ─── */
-    .icons-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1px; background: var(--border);
-      border: 1px solid var(--border);
-      margin-bottom: 1.5rem;
-    }
-    .icon-cell {
-      background: var(--off);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 0.5rem; padding: 1.4rem 0.5rem;
-      font-size: 1.8rem;
-      transition: background 0.2s;
-    }
-    .icon-cell:hover { background: #e8f1fb; }
-    .icon-cell span { font-size: 0.65rem; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; text-align: center; }
-    .vorteile-badge-inline {
-      background: var(--navy); color: white;
-      padding: 1rem 1.5rem; display: inline-flex; align-items: center; gap: 1rem;
-    }
-    .vorteile-badge-inline .vorteile-badge-num { font-size: 2rem; font-weight: 800; line-height: 1; }
-    .vorteile-badge-inline .vorteile-badge-txt { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+    .btn-kontakt-label { font-size: 0.92rem; font-weight: 700; color: white; }
+    .btn-kontakt-desc { font-size: 0.76rem; color: rgba(255,255,255,0.4); margin-top: 2px; font-weight: 300; }
+    .btn-kontakt-arrow { font-size: 0.95rem; color: rgba(255,255,255,0.25); }
 
     /* ─── DISCLAIMER ─── */
-    .disclaimer {
-      background: #f0f2f5;
-      border-top: 1px solid var(--border);
-      padding: 1.2rem 6%;
-      font-size: 0.72rem; color: #999;
-      line-height: 1.6; text-align: center;
-    }
+    .disclaimer { background: #f0f2f5; border-top: 1px solid var(--border); padding: 1.2rem 6%; font-size: 0.72rem; color: #aaa; line-height: 1.6; text-align: center; }
 
     /* ─── FOOTER ─── */
     footer { background: var(--black); color: rgba(255,255,255,0.35); padding: 2rem 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; }
@@ -308,51 +249,46 @@
     /* ─── FLOATING CALL ─── */
     .floating-call { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; background: var(--navy); color: white; border-radius: 4px; padding: 0.8rem 1.4rem; display: flex; align-items: center; gap: 0.6rem; text-decoration: none; font-weight: 600; box-shadow: 0 8px 30px rgba(0,0,0,0.3); transition: background 0.2s; font-size: 0.88rem; }
     .floating-call:hover { background: var(--blue); }
-    .ring { animation: ring 2s infinite; }
-    @keyframes ring { 0%,100%{transform:rotate(0)} 10%{transform:rotate(12deg)} 20%{transform:rotate(-10deg)} 30%{transform:rotate(6deg)} 40%{transform:rotate(-4deg)} 50%{transform:rotate(0)} }
 
+    /* ─── REVEAL ─── */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 1024px) {
+      .haupt-grid { grid-template-columns: 1fr 1fr; }
+      .haupt-grid .haupt-card:last-child { grid-column: 1 / -1; aspect-ratio: 16/7; }
       .leistungen-grid { grid-template-columns: repeat(2,1fr); }
-      .ablauf-grid { grid-template-columns: repeat(2,1fr); }
-      .step:nth-child(3) { border-top: 1px solid var(--border); }
-      .step:nth-child(4) { border-top: 1px solid var(--border); }
+      .ablauf-grid { grid-template-columns: 1fr; }
+      .step { border-right: none; border-bottom: 1px solid var(--border); }
+      .step:last-child { border-bottom: none; }
     }
     @media (max-width: 900px) {
       nav ul { display: none; }
       nav ul.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: white; padding: 1.5rem 6%; gap: 1rem; border-bottom: 1px solid var(--border); z-index: 99; }
       .hamburger { display: flex; }
-      .hero-stats { display: none; }
-      .hero-content { grid-template-columns: 1fr; }
       .vorteile-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .vorteile-badge { display: none; }
-      .regionen-grid { grid-template-columns: repeat(2,1fr); }
-      .regionen-intro { gap: 1.5rem; }
       .kontakt-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .testimonials-grid { grid-template-columns: 1fr; }
+      #cta { flex-direction: column; align-items: flex-start; }
+      .cta-right { align-items: flex-start; }
     }
     @media (max-width: 600px) {
       section { padding: 4rem 5%; }
+      .haupt-grid { grid-template-columns: 1fr; }
+      .haupt-card { aspect-ratio: 4/3; }
+      .haupt-grid .haupt-card:last-child { grid-column: auto; }
       .leistungen-grid { grid-template-columns: 1fr; }
-      .ablauf-grid { grid-template-columns: 1fr; }
-      .step { border-right: none; border-bottom: 1px solid var(--border); }
       footer { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav id="navbar">
   <a class="logo" href="#">
-    <div class="logo-mark">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 9v13h7v-7h6v7h7V9L12 2z" fill="white"/></svg>
-    </div>
-    <div class="logo-wordmark">
-      <span class="logo-name">Culix</span>
-      <span class="logo-sub">Reinigung & Hauswartung</span>
-    </div>
+    <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 9v13h7v-7h6v7h7V9L12 2z" fill="white"/></svg></div>
+    <div><div class="logo-name">Culix</div><div class="logo-sub">Reinigung & Hauswartung</div></div>
   </a>
   <ul id="nav-menu">
     <li><a href="#leistungen">Leistungen</a></li>
@@ -365,89 +301,220 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-left">
-      <h1>Professionelle<br/><span class="accent">Reinigung.</span><br/>Verlässlich.</h1>
-      <p class="hero-desc">Culix steht für makellose Sauberkeit und zuverlässige Hauswartung – für Privathaushalte, Büros und Liegenschaften in der ganzen Region.</p>
-      <div class="hero-btns">
-        <a href="#kontakt" class="btn-primary">Offerte anfragen</a>
-        <a href="#leistungen" class="btn-outline">Leistungen ansehen</a>
-      </div>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">15+</div><div class="hero-stat-label">Jahre Erfahrung</div></div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat"><div class="hero-stat-num">100%</div><div class="hero-stat-label">Qualitätsgarantie</div></div>
-      <div class="hero-stat-divider"></div>
-      <div class="hero-stat" style="text-align:right"><div class="hero-stat-num" style="font-size:1.1rem;line-height:1.3;">Lokal &<br/>persönlich</div><div class="hero-stat-label">Ihr Partner vor Ort</div></div>
+    <div class="hero-tag">Professionell · Zuverlässig · Schweiz</div>
+    <h1>Reinigung &<br/><span>Hauswartung.</span></h1>
+    <p class="hero-desc">Culix steht für makellose Sauberkeit und zuverlässige Hauswartung – für Privathaushalte, Büros und Liegenschaften. Wir denken voraus, damit Sie sich zurücklehnen können.</p>
+    <div class="hero-btns">
+      <a href="#kontakt" class="btn-main">Offerte anfragen</a>
+      <a href="#leistungen" class="btn-ghost">Leistungen ansehen</a>
     </div>
   </div>
 </section>
 
+<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
     <span class="ticker-item"><span class="ticker-dot"></span>Haushaltsreinigung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Büroreinigung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Hauswartung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Endreinigung</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Winterdienst</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Entsorgung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Gartenunterhalt</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Fensterreinigung</span>
-    
+    <span class="ticker-item"><span class="ticker-dot"></span>Polsterreinigung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Haushaltsreinigung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Büroreinigung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Hauswartung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Endreinigung</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Winterdienst</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Entsorgung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Gartenunterhalt</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Fensterreinigung</span>
-    
+    <span class="ticker-item"><span class="ticker-dot"></span>Polsterreinigung</span>
   </div>
 </div>
 
-<section id="leistungen">
-  <div class="leistungen-header">
-    <div><div class="eyebrow">Leistungen</div><h2>Was wir für Sie tun</h2></div>
-    <p class="lead">Alles aus einer Hand – von der Reinigung bis zur vollständigen Hauswartung.</p>
+<!-- 3 HAUPTLEISTUNGEN -->
+<section id="hauptleistungen">
+  <div class="haupt-header">
+    <div class="section-tag" style="justify-content:center;">Unsere Kernleistungen</div>
+    <h2 style="text-align:center;">Was wir für Sie tun</h2>
+    <p class="lead" style="text-align:center; margin-top:0.5rem;">Von der Reinigung bis zur vollständigen Hauswartung – alles aus einer Hand.</p>
   </div>
-  <div class="leistungen-grid">
-    <div class="karte reveal"><div class="karte-num">01</div><div class="karte-icon-wrap"><div class="karte-icon">🏠</div></div><h3>Haushaltsreinigung</h3><p>Gründliche Reinigung Ihrer Wohnung oder Ihres Hauses – diskret, verlässlich, regelmässig.</p></div>
-    <div class="karte reveal"><div class="karte-num">02</div><div class="karte-icon-wrap"><div class="karte-icon">🏢</div></div><h3>Büro & Gewerbe</h3><p>Saubere Arbeitsumgebungen für mehr Produktivität – auch ausserhalb der Geschäftszeiten.</p></div>
-    <div class="karte reveal"><div class="karte-num">03</div><div class="karte-icon-wrap"><div class="karte-icon">🏗️</div></div><h3>Unterhaltsreinigung</h3><p>Treppenhäuser, Einstellhallen und Allgemeinbereiche – laufend gepflegt.</p></div>
-    <div class="karte reveal"><div class="karte-num">04</div><div class="karte-icon-wrap"><div class="karte-icon">🔑</div></div><h3>Endreinigung</h3><p>Professionelle Wohnungsübergabe auf höchstem Niveau – sauber, gründlich und termingerecht.</p></div>
-    <div class="karte reveal"><div class="karte-num">05</div><div class="karte-icon-wrap"><div class="karte-icon">🛠️</div></div><h3>Hauswartung</h3><p>Vollständige Betreuung Ihrer Liegenschaft: Kontrolle, Kleinreparaturen, Koordination.</p></div>
-    <div class="karte reveal"><div class="karte-num">06</div><div class="karte-icon-wrap"><div class="karte-icon">❄️</div></div><h3>Winterdienst</h3><p>Schneeräumung und Streudienst – zuverlässig, sicher und pünktlich.</p></div>
-    <div class="karte reveal"><div class="karte-num">07</div><div class="karte-icon-wrap"><div class="karte-icon">🌿</div></div><h3>Gartenunterhalt</h3><p>Rasenmähen, Hecken schneiden, Laub – das ganze Jahr gepflegt.</p></div>
-    <div class="karte reveal"><div class="karte-num">08</div><div class="karte-icon-wrap"><div class="karte-icon">🪟</div></div><h3>Fensterreinigung</h3><p>Streifenfreie, glänzende Fenster – innen und aussen, professionell.</p></div>
-    <div class="karte reveal"><div class="karte-num">09</div><div class="karte-icon-wrap"><div class="karte-icon">🛋️</div></div><h3>Polsterreinigung</h3><p>Sofas und Sessel professionell gereinigt – für frische Luft und hygienisches Wohlbefinden.</p></div>
+  <div class="haupt-grid">
+    <div class="haupt-card reveal">
+      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80" alt="Reinigung" />
+      <div class="haupt-overlay"></div>
+      <div class="haupt-content">
+        <div class="haupt-line"></div>
+        <div class="haupt-title">Reinigung</div>
+        <div class="haupt-desc">Haushalt, Büro, Gewerbe, Endreinigung – professionell und gründlich.</div>
+      </div>
+    </div>
+    <div class="haupt-card reveal">
+      <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Hauswartung" />
+      <div class="haupt-overlay"></div>
+      <div class="haupt-content">
+        <div class="haupt-line"></div>
+        <div class="haupt-title">Hauswartung</div>
+        <div class="haupt-desc">Vollständige Betreuung Ihrer Liegenschaft – zuverlässig das ganze Jahr.</div>
+      </div>
+    </div>
+    <div class="haupt-card reveal">
+      <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80" alt="Gartenunterhalt & Entsorgung" />
+      <div class="haupt-overlay"></div>
+      <div class="haupt-content">
+        <div class="haupt-line"></div>
+        <div class="haupt-title">Garten & Entsorgung</div>
+        <div class="haupt-desc">Gartenunterhalt, Sperrgut und Entsorgung – sauber und unkompliziert.</div>
+      </div>
+    </div>
   </div>
 </section>
 
+<!-- ALLE LEISTUNGEN -->
+<section id="leistungen">
+  <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
+    <div><div class="section-tag">Vollständiges Angebot</div><h2>9 Leistungen.<br/>Ein Ansprechpartner.</h2></div>
+    <a href="#kontakt" style="display:inline-flex; align-items:center; gap:0.5rem; background:var(--navy); color:white; text-decoration:none; padding:0.75rem 1.5rem; border-radius:4px; font-weight:700; font-size:0.88rem; white-space:nowrap;">Offerte anfragen →</a>
+  </div>
+
+  <!-- Grosse Nummer + Text Liste -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--border);">
+
+    <div class="lst-item reveal" style="display:flex; gap:1.5rem; padding:2rem; border-right:1px solid var(--border); border-bottom:1px solid var(--border); align-items:flex-start; transition:background 0.2s;">
+      <div style="font-size:2.8rem; font-weight:800; color:var(--border); line-height:1; flex-shrink:0; min-width:48px; transition:color 0.2s;" class="lst-num">01</div>
+      <div>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
+          <span style="font-size:1.3rem;">🏠</span>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--navy);">Haushaltsreinigung</h3>
+        </div>
+        <p style="font-size:0.84rem; color:var(--muted); line-height:1.7; font-weight:300;">Gründliche Reinigung Ihrer Wohnung oder Ihres Hauses – diskret, verlässlich, regelmässig.</p>
+      </div>
+    </div>
+
+    <div class="lst-item reveal" style="display:flex; gap:1.5rem; padding:2rem; border-bottom:1px solid var(--border); align-items:flex-start; transition:background 0.2s;">
+      <div style="font-size:2.8rem; font-weight:800; color:var(--border); line-height:1; flex-shrink:0; min-width:48px; transition:color 0.2s;" class="lst-num">02</div>
+      <div>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
+          <span style="font-size:1.3rem;">🏢</span>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--navy);">Büro & Gewerbe</h3>
+        </div>
+        <p style="font-size:0.84rem; color:var(--muted); line-height:1.7; font-weight:300;">Saubere Arbeitsumgebungen für mehr Produktivität – auch ausserhalb der Geschäftszeiten.</p>
+      </div>
+    </div>
+
+    <div class="lst-item reveal" style="display:flex; gap:1.5rem; padding:2rem; border-right:1px solid var(--border); border-bottom:1px solid var(--border); align-items:flex-start; transition:background 0.2s;">
+      <div style="font-size:2.8rem; font-weight:800; color:var(--border); line-height:1; flex-shrink:0; min-width:48px; transition:color 0.2s;" class="lst-num">03</div>
+      <div>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
+          <span style="font-size:1.3rem;">🏗️</span>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--navy);">Unterhaltsreinigung</h3>
+        </div>
+        <p style="font-size:0.84rem; color:var(--muted); line-height:1.7; font-weight:300;">Treppenhäuser, Einstellhallen und Allgemeinbereiche – laufend gepflegt.</p>
+      </div>
+    </div>
+
+    <div class="lst-item reveal" style="display:flex; gap:1.5rem; padding:2rem; border-bottom:1px solid var(--border); align-items:flex-start; transition:background 0.2s;">
+      <div style="font-size:2.8rem; font-weight:800; color:var(--border); line-height:1; flex-shrink:0; min-width:48px; transition:color 0.2s;" class="lst-num">04</div>
+      <div>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
+          <span style="font-size:1.3rem;">🔑</span>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--navy);">Endreinigung</h3>
+        </div>
+        <p style="font-size:0.84rem; color:var(--muted); line-height:1.7; font-weight:300;">Professionelle Wohnungsübergabe – sauber, gründlich und termingerecht.</p>
+      </div>
+    </div>
+
+    <div class="lst-item reveal" style="display:flex; gap:1.5rem; padding:2rem; border-right:1px solid var(--border); border-bottom:1px solid var(--border); align-items:flex-start; transition:background 0.2s;">
+      <div style="font-size:2.8rem; font-weight:800; color:var(--border); line-height:1; flex-shrink:0; min-width:48px; transition:color 0.2s;" class="lst-num">05</div>
+      <div>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
+          <span style="font-size:1.3rem;">🛠️</span>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--navy);">Hauswartung</h3>
+        </div>
+        <p style="font-size:0.84rem; color:var(--muted); line-height:1.7; font-weight:300;">Vollständige Betreuung Ihrer Liegenschaft: Kontrolle, Kleinreparaturen, Koordination.</p>
+      </div>
+    </div>
+
+    <div class="lst-item reveal" style="display:flex; gap:1.5rem; padding:2rem; border-bottom:1px solid var(--border); align-items:flex-start; transition:background 0.2s;">
+      <div style="font-size:2.8rem; font-weight:800; color:var(--border); line-height:1; flex-shrink:0; min-width:48px; transition:color 0.2s;" class="lst-num">06</div>
+      <div>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
+          <span style="font-size:1.3rem;">🗑️</span>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--navy);">Entsorgung</h3>
+        </div>
+        <p style="font-size:0.84rem; color:var(--muted); line-height:1.7; font-weight:300;">Fachgerechte Entsorgung von Sperrgut, Kehricht und Sondermüll – sauber und unkompliziert.</p>
+      </div>
+    </div>
+
+    <div class="lst-item reveal" style="display:flex; gap:1.5rem; padding:2rem; border-right:1px solid var(--border); align-items:flex-start; transition:background 0.2s;">
+      <div style="font-size:2.8rem; font-weight:800; color:var(--border); line-height:1; flex-shrink:0; min-width:48px; transition:color 0.2s;" class="lst-num">07</div>
+      <div>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
+          <span style="font-size:1.3rem;">🌿</span>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--navy);">Gartenunterhalt</h3>
+        </div>
+        <p style="font-size:0.84rem; color:var(--muted); line-height:1.7; font-weight:300;">Rasenmähen, Hecken schneiden, Laub – das ganze Jahr gepflegt.</p>
+      </div>
+    </div>
+
+    <div class="lst-item reveal" style="display:flex; gap:1.5rem; padding:2rem; border-bottom:1px solid var(--border); align-items:flex-start; transition:background 0.2s;">
+      <div style="font-size:2.8rem; font-weight:800; color:var(--border); line-height:1; flex-shrink:0; min-width:48px; transition:color 0.2s;" class="lst-num">08</div>
+      <div>
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
+          <span style="font-size:1.3rem;">🪟</span>
+          <h3 style="font-size:1rem; font-weight:700; color:var(--navy);">Fensterreinigung</h3>
+        </div>
+        <p style="font-size:0.84rem; color:var(--muted); line-height:1.7; font-weight:300;">Streifenfreie, glänzende Fenster – innen und aussen, professionell.</p>
+      </div>
+    </div>
+
+    <!-- Letzte Kachel: volle Breite als CTA -->
+    <div class="lst-item reveal" style="display:flex; gap:1.5rem; padding:2rem; grid-column:1/-1; background:var(--navy); align-items:center; justify-content:space-between; flex-wrap:wrap;">
+      <div style="display:flex; gap:1.5rem; align-items:flex-start;">
+        <div style="font-size:2.8rem; font-weight:800; color:rgba(255,255,255,0.15); line-height:1; flex-shrink:0;">09</div>
+        <div>
+          <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem;">
+            <span style="font-size:1.3rem;">🛋️</span>
+            <h3 style="font-size:1rem; font-weight:700; color:white;">Polsterreinigung</h3>
+          </div>
+          <p style="font-size:0.84rem; color:rgba(255,255,255,0.55); line-height:1.7; font-weight:300;">Sofas und Sessel professionell gereinigt – für frische Luft und hygienisches Wohlbefinden.</p>
+        </div>
+      </div>
+      <a href="#kontakt" style="display:inline-flex; align-items:center; gap:0.5rem; background:var(--blue); color:white; text-decoration:none; padding:0.8rem 1.5rem; border-radius:4px; font-weight:700; font-size:0.88rem; white-space:nowrap; flex-shrink:0;">Alle anfragen →</a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .lst-item:hover { background: #e8f1fb; }
+  .lst-item:hover .lst-num { color: var(--blue) !important; }
+  @media (max-width: 700px) {
+    #leistungen > div:nth-child(2) { grid-template-columns: 1fr !important; }
+    #leistungen > div:nth-child(2) > div { border-right: none !important; }
+  }
+</style>
+
+<!-- WARUM CULIX -->
 <section id="vorteile">
   <div class="vorteile-layout">
-    <div class="reveal" style="display:flex; flex-direction:column; justify-content:center; gap:2rem;">
-      <div style="display:flex; flex-direction:column; gap:1.5rem;">
-        <div style="padding:2rem; background:var(--off); border:1px solid var(--border); border-radius:4px;">
-          <div style="font-size:3rem; font-weight:800; color:var(--navy); line-height:1;">15+</div>
-          <div style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-top:0.4rem;">Jahre Erfahrung</div>
-        </div>
-        <div style="padding:2rem; background:var(--navy); border-radius:4px;">
-          <div style="font-size:3rem; font-weight:800; color:white; line-height:1;">100%</div>
-          <div style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:0.4rem;">Qualitätsversprechen</div>
-        </div>
-        <div style="padding:2rem; background:var(--blue); border-radius:4px;">
-          <div style="font-size:1.6rem; font-weight:800; color:white; line-height:1.2;">Lokal &<br/>persönlich</div>
-          <div style="font-size:0.72rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-top:0.4rem;">Ihr Partner vor Ort</div>
-        </div>
+    <div class="reveal">
+      <div class="section-tag" style="color:rgba(255,255,255,0.4);">Über uns</div>
+      <h2>Warum Culix?</h2>
+      <p class="lead" style="margin-bottom:2.5rem;">Wir sind mehr als ein Reinigungsunternehmen – ein verlässlicher Partner für alles rund um Ihre Liegenschaft.</p>
+      <div class="vorteile-stats">
+        <div class="v-stat"><div class="v-stat-num">15+</div><div class="v-stat-label">Jahre Erfahrung</div></div>
+        <div class="v-stat"><div class="v-stat-num">100%</div><div class="v-stat-label">Qualitätsversprechen</div></div>
+        <div class="v-stat"><div class="v-stat-num" style="font-size:1.6rem; line-height:1.3;">Lokal &<br/>persönlich</div><div class="v-stat-label">Ihr Partner vor Ort</div></div>
       </div>
     </div>
     <div class="reveal">
-      <div class="eyebrow">Über uns</div>
-      <h2>Warum Culix?</h2>
-      <p class="lead" style="margin-bottom:2rem;">Wir sind mehr als ein Reinigungsunternehmen – ein verlässlicher Partner für alles rund um Ihre Liegenschaft.</p>
       <div class="vorteile-list">
         <div class="vorteil"><div class="vorteil-num">01</div><div><h4>Geprüftes & geschultes Personal</h4><p>Alle Mitarbeitenden sind sorgfältig ausgewählt und kennen professionelle Reinigungsstandards.</p></div></div>
         <div class="vorteil"><div class="vorteil-num">02</div><div><h4>Pünktlich & zuverlässig</h4><p>Wir erscheinen wann vereinbart – ohne Ausreden. Zuverlässigkeit ist unser Grundprinzip.</p></div></div>
@@ -458,23 +525,47 @@
   </div>
 </section>
 
+<!-- ABLAUF -->
 <section id="ablauf">
-  <div class="eyebrow">So funktioniert's</div>
-  <h2>In 4 Schritten zu mehr Sauberkeit</h2>
+  <div class="ablauf-intro">
+    <div><div class="section-tag">So funktioniert's</div><h2>In 3 Schritten zur sauberen Lösung</h2></div>
+    <p class="lead">Unkompliziert, schnell und transparent.</p>
+  </div>
   <div class="ablauf-grid">
-    <div class="step reveal"><div class="step-num">01</div><div class="step-bar"></div><h4>Anfrage senden</h4><p>Per WhatsApp, Telefon oder E-Mail – ganz ohne Verpflichtung.</p></div>
-    <div class="step reveal"><div class="step-num">02</div><div class="step-bar"></div><h4>Kostenlose Offerte</h4><p>Wir besichtigen Ihr Objekt und erstellen eine transparente Offerte.</p></div>
-    <div class="step reveal"><div class="step-num">03</div><div class="step-bar"></div><h4>Terminvereinbarung</h4><p>Nach Bestätigung vereinbaren wir den Einsatz passend zu Ihren Wünschen.</p></div>
-    <div class="step reveal"><div class="step-num">04</div><div class="step-bar"></div><h4>Wir legen los</h4><p>Unser Team erscheint pünktlich und erledigt alles zu Ihrer Zufriedenheit.</p></div>
+    <div class="step reveal"><div class="step-num">01</div><div class="step-bar"></div><h4>Anfrage & Offerte</h4><p>Per WhatsApp, Telefon oder E-Mail – kostenlose Offerte ohne Verpflichtung.</p></div>
+    <div class="step reveal"><div class="step-num">02</div><div class="step-bar"></div><h4>Termin vereinbaren</h4><p>Nach Bestätigung vereinbaren wir den Einsatz passend zu Ihren Wünschen.</p></div>
+    <div class="step reveal"><div class="step-num">03</div><div class="step-bar"></div><h4>Wir legen los</h4><p>Unser Team erscheint pünktlich und erledigt alles zu Ihrer vollsten Zufriedenheit.</p></div>
   </div>
 </section>
 
+<!-- ANRUF CTA -->
+<section id="cta">
+  <div class="cta-left">
+    <h2>Jetzt kostenlos anfragen.</h2>
+    <p>Wir melden uns innerhalb von 24 Stunden – versprochen.</p>
+  </div>
+  <div class="cta-right">
+    <a href="tel:+41765008915" class="cta-phone">
+      <span class="cta-phone-icon">📞</span>
+      <div>
+        <div class="cta-phone-num">076 500 89 15</div>
+        <div class="cta-phone-label">Direkt anrufen</div>
+      </div>
+    </a>
+    <a href="https://wa.me/41765008915?text=Hallo%20Culix%2C%20ich%20m%C3%B6chte%20gerne%20eine%20Offerte%20anfragen." target="_blank" class="cta-wa">
+      <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="white" opacity="0.2"/><path d="M23.5 8.5C21.6 6.6 19.1 5.5 16.4 5.5c-5.5 0-10 4.5-10 10 0 1.8.5 3.5 1.4 5L5.5 26.5l6.2-1.6c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10 0-2.7-1-5.2-2.9-7.1zm-7.1 15.4c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.8.9-3.1-.2-.3c-.9-1.3-1.3-2.9-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2 2.2 0 4.3.9 5.8 2.4 1.6 1.6 2.4 3.6 2.4 5.8.1 4.6-3.6 8.5-8 8.5zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.1 1.7 2.7 4.2 3.7.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z" fill="white"/></svg>
+      WhatsApp schreiben
+    </a>
+  </div>
+</section>
+
+<!-- KONTAKT -->
 <section id="kontakt">
   <div class="kontakt-layout">
     <div class="reveal">
-      <div class="eyebrow" style="color:var(--blue-lt);">Kontakt</div>
+      <div class="section-tag" style="color:rgba(255,255,255,0.35);">Kontakt</div>
       <h2>Sprechen wir.</h2>
-      <p class="lead">Schreiben Sie uns auf WhatsApp, rufen Sie an oder senden Sie eine E-Mail – wir melden uns schnell.</p>
+      <p class="lead">Schreiben Sie uns – wir antworten schnell und unkompliziert.</p>
       <div class="kontakt-info">
         <div class="kontakt-item"><div class="kontakt-icon">📞</div><div><h4>Telefon</h4><a href="tel:+41765008915">076 500 89 15</a></div></div>
         <div class="kontakt-item"><div class="kontakt-icon">✉️</div><div><h4>E-Mail</h4><a href="mailto:culix.hauswartung@gmail.com">culix.hauswartung@gmail.com</a></div></div>
@@ -482,19 +573,19 @@
       </div>
     </div>
     <div class="reveal">
-      <p class="kontakt-cta-text" style="margin-top:5.5rem;">Wählen Sie Ihren bevorzugten Weg – wir antworten rasch.</p>
+      <p class="kontakt-cta-text" style="margin-top:4rem;">Wählen Sie Ihren bevorzugten Weg – wir antworten rasch.</p>
       <div class="kontakt-buttons">
-        <a href="https://wa.me/41765008915?text=Hallo%20Culix%2C%20ich%20m%C3%B6chte%20gerne%20eine%20Offerte%20anfragen." target="_blank" class="btn-kontakt btn-whatsapp">
-          <span class="btn-kontakt-icon"><svg width="24" height="24" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M23.5 8.5C21.6 6.6 19.1 5.5 16.4 5.5c-5.5 0-10 4.5-10 10 0 1.8.5 3.5 1.4 5L5.5 26.5l6.2-1.6c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10 0-2.7-1-5.2-2.9-7.1zm-7.1 15.4c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.8.9-3.1-.2-.3c-.9-1.3-1.3-2.9-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2 2.2 0 4.3.9 5.8 2.4 1.6 1.6 2.4 3.6 2.4 5.8.1 4.6-3.6 8.5-8 8.5zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.1 1.7 2.7 4.2 3.7.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z" fill="white"/></svg></span>
+        <a href="https://wa.me/41765008915?text=Hallo%20Culix%2C%20ich%20m%C3%B6chte%20gerne%20eine%20Offerte%20anfragen." target="_blank" class="btn-kontakt btn-wa">
+          <span class="btn-kontakt-icon"><svg width="22" height="22" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="#25D366"/><path d="M23.5 8.5C21.6 6.6 19.1 5.5 16.4 5.5c-5.5 0-10 4.5-10 10 0 1.8.5 3.5 1.4 5L5.5 26.5l6.2-1.6c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10 0-2.7-1-5.2-2.9-7.1zm-7.1 15.4c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.8.9-3.1-.2-.3c-.9-1.3-1.3-2.9-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2 2.2 0 4.3.9 5.8 2.4 1.6 1.6 2.4 3.6 2.4 5.8.1 4.6-3.6 8.5-8 8.5zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.1 1.7 2.7 4.2 3.7.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z" fill="white"/></svg></span>
           <span class="btn-kontakt-body"><span class="btn-kontakt-label">WhatsApp</span><span class="btn-kontakt-desc">Schnell & unkompliziert schreiben</span></span>
           <span class="btn-kontakt-arrow">→</span>
         </a>
-        <a href="tel:+41765008915" class="btn-kontakt btn-telefon">
+        <a href="tel:+41765008915" class="btn-kontakt btn-tel">
           <span class="btn-kontakt-icon">📞</span>
           <span class="btn-kontakt-body"><span class="btn-kontakt-label">Anrufen</span><span class="btn-kontakt-desc">076 500 89 15 · Mo–Sa erreichbar</span></span>
           <span class="btn-kontakt-arrow">→</span>
         </a>
-        <a href="mailto:culix.hauswartung@gmail.com" class="btn-kontakt btn-email">
+        <a href="mailto:culix.hauswartung@gmail.com" class="btn-kontakt btn-em">
           <span class="btn-kontakt-icon">✉️</span>
           <span class="btn-kontakt-body"><span class="btn-kontakt-label">E-Mail</span><span class="btn-kontakt-desc">culix.hauswartung@gmail.com</span></span>
           <span class="btn-kontakt-arrow">→</span>
@@ -510,10 +601,15 @@
 
 <footer>
   <div><strong style="color:rgba(255,255,255,0.6);">Culix Reinigung & Hauswartung</strong><br/>© 2025 Culix</div>
-  <div class="footer-links"><a href="#leistungen">Leistungen</a><a href="#kontakt">Kontakt</a><a href="mailto:culix.hauswartung@gmail.com">E-Mail</a><a href="datenschutz.html">Datenschutz</a></div>
+  <div class="footer-links">
+    <a href="#leistungen">Leistungen</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="mailto:culix.hauswartung@gmail.com">E-Mail</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
 </footer>
 
-<a href="tel:+41765008915" class="floating-call"><span class="ring">📞</span> Jetzt anrufen</a>
+<a href="tel:+41765008915" class="floating-call">📞 Jetzt anrufen</a>
 
 <script>
   window.addEventListener('scroll', () => {
