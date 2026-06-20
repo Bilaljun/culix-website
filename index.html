@@ -1,352 +1,510 @@
+cat > /mnt/user-data/outputs/index.html << 'ENDOFHTML'
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Culix Reinigung & Hauswartung</title>
-  <meta name="description" content="Culix Reinigung und Hauswartung – professionelle Reinigung, Hauswartung und mehr. Jetzt Offerte anfragen." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#020b18"/>
+  <title>Culix Reinigung & Hauswartung – Professionell. Zuverlässig. Gründlich.</title>
+  <meta name="description" content="Culix Reinigung und Hauswartung – professionelle Reinigung, Hauswartung und Gebäudeservice in der Schweiz."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --black: #1C1F22;
-      --navy:  #2D3135;
-      --blue:  #6B7280;
-      --blue-lt: #9CA3AF;
-      --white: #ffffff;
-      --off:   #F2F3F4;
-      --muted: #6B7280;
-      --border: #D5D8DC;
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --navy:#020b18;
+      --navy2:#061428;
+      --blue:#1554F0;
+      --blue2:#2e6eff;
+      --blue3:#4d85ff;
+      --white:#ffffff;
+      --off:#f4f7ff;
+      --muted:#8a9abf;
+      --border:rgba(255,255,255,0.08);
+      --text:#0d1b2e;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--black); background: var(--white); overflow-x: hidden; }
+    html{scroll-behavior:smooth;overflow-x:hidden}
+    body{font-family:'Plus Jakarta Sans',sans-serif;color:var(--white);background:var(--navy);overflow-x:hidden}
 
     /* ─── NAV ─── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 6%; height: 68px;
-      background: rgba(255,255,255,0.97);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-      transition: box-shadow 0.3s;
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:200;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 5%;height:72px;
+      background:rgba(2,11,24,0.85);
+      backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+      transition:background 0.3s;
     }
-    nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.08); }
-    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .logo-mark { width: 36px; height: 36px; background: var(--navy); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
-    .logo-mark svg { width: 20px; height: 20px; }
-    .logo-name { font-weight: 800; font-size: 1.1rem; color: var(--navy); letter-spacing: -0.01em; line-height: 1; }
-    .logo-sub { font-size: 0.58rem; color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase; margin-top: 2px; }
-    nav ul { display: flex; gap: 2rem; list-style: none; }
-    nav ul a { color: var(--black); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
-    nav ul a:hover { color: var(--blue); }
-    .nav-cta { background: var(--navy); color: var(--white) !important; padding: 0.55rem 1.3rem; border-radius: 4px; font-weight: 600 !important; transition: background 0.2s !important; }
-    .nav-cta:hover { background: var(--blue) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 22px; height: 1.5px; background: var(--black); }
+    nav.scrolled{background:rgba(2,11,24,0.97)}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .logo-icon{
+      width:44px;height:44px;
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.3rem;font-weight:900;color:white;
+      box-shadow:0 4px 20px rgba(21,84,240,0.5);
+      letter-spacing:-1px;
+    }
+    .logo-text .brand{font-size:1.25rem;font-weight:900;color:white;letter-spacing:0.05em;display:block;line-height:1}
+    .logo-text .sub{font-size:0.52rem;font-weight:500;color:rgba(255,255,255,0.4);letter-spacing:0.18em;text-transform:uppercase;margin-top:2px}
+    nav ul{display:flex;gap:2rem;list-style:none}
+    nav ul a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;position:relative;padding-bottom:4px}
+    nav ul a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--blue2);transition:width 0.3s;border-radius:2px}
+    nav ul a:hover{color:white}
+    nav ul a:hover::after{width:100%}
+    .nav-btn{
+      background:var(--blue);color:white;
+      padding:0.6rem 1.4rem;border-radius:8px;
+      text-decoration:none;font-weight:700;font-size:0.88rem;
+      box-shadow:0 4px 20px rgba(21,84,240,0.45);
+      transition:background 0.2s,transform 0.2s,box-shadow 0.2s;
+      white-space:nowrap;
+    }
+    .nav-btn:hover{background:var(--blue2);transform:translateY(-1px);box-shadow:0 8px 28px rgba(21,84,240,0.55)}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+    .hamburger span{width:24px;height:2px;background:white;border-radius:2px;transition:0.3s}
 
     /* ─── HERO ─── */
-    #hero {
-      height: 100vh; position: relative;
-      display: flex; align-items: center;
-      overflow: hidden;
-      background: var(--navy);
+    #hero{
+      min-height:100svh;
+      position:relative;
+      display:flex;align-items:center;
+      overflow:hidden;
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, var(--navy) 45%, transparent 75%);
-      z-index: 1;
+    /* Deep space background */
+    .hero-bg{
+      position:absolute;inset:0;
+      background:radial-gradient(ellipse at 70% 50%, #0a2a6e 0%, #041230 40%, #020b18 100%);
     }
-    .hero-photo {
-      position: absolute; right: 0; top: 0; bottom: 0;
-      width: 58%;
-      background: url('Resul_Hauswartung.jpeg') center top/cover no-repeat;
+    /* Resul photo – right side */
+    .hero-photo{
+      position:absolute;right:0;top:0;bottom:0;
+      width:55%;
+      background:url('Resul_Hauswartung.jpeg') center top/cover no-repeat;
+      -webkit-mask-image:linear-gradient(to left, rgba(0,0,0,0.9) 40%, transparent 90%);
+      mask-image:linear-gradient(to left, rgba(0,0,0,0.9) 40%, transparent 90%);
     }
-    .hero-photo::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, var(--navy) 0%, rgba(45,49,53,0.3) 40%, transparent 70%);
+    /* Subtle glow behind photo */
+    .hero-glow{
+      position:absolute;right:10%;top:50%;transform:translateY(-50%);
+      width:500px;height:500px;border-radius:50%;
+      background:radial-gradient(circle,rgba(21,84,240,0.22) 0%,transparent 70%);
+      pointer-events:none;
     }
-    .hero-overlay { display: none; }
-    .hero-content {
-      position: relative; z-index: 2;
-      padding: 0 6%; max-width: 700px;
+    /* Star particles */
+    .hero-stars{
+      position:absolute;inset:0;
+      background-image:
+        radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,0.6) 0%, transparent 0%),
+        radial-gradient(1px 1px at 25% 60%, rgba(255,255,255,0.4) 0%, transparent 0%),
+        radial-gradient(1px 1px at 40% 15%, rgba(255,255,255,0.5) 0%, transparent 0%),
+        radial-gradient(1px 1px at 55% 80%, rgba(255,255,255,0.3) 0%, transparent 0%),
+        radial-gradient(1px 1px at 70% 35%, rgba(255,255,255,0.5) 0%, transparent 0%),
+        radial-gradient(1.5px 1.5px at 15% 45%, rgba(255,255,255,0.7) 0%, transparent 0%),
+        radial-gradient(1px 1px at 85% 70%, rgba(255,255,255,0.4) 0%, transparent 0%),
+        radial-gradient(1px 1px at 92% 20%, rgba(255,255,255,0.5) 0%, transparent 0%);
+      pointer-events:none;
     }
-    .hero-tag {
-      display: inline-block;
-      background: var(--blue);
-      color: white;
-      font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      padding: 0.4rem 1rem; border-radius: 2px;
-      margin-bottom: 1.5rem;
+    .hero-content{
+      position:relative;z-index:2;
+      padding:120px 5% 80px;
+      max-width:620px;
     }
-    h1 {
-      font-size: clamp(2.8rem, 6vw, 5rem);
-      font-weight: 800; color: white;
-      line-height: 1.05; letter-spacing: -0.03em;
-      margin-bottom: 1.2rem;
+    .hero-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(21,84,240,0.2);
+      border:1px solid rgba(21,84,240,0.5);
+      color:var(--blue3);
+      padding:0.45rem 1.1rem;border-radius:999px;
+      font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;
+      margin-bottom:1.8rem;
+      animation:fadeDown 0.8s ease both;
     }
-    h1 span { color: var(--blue-lt); }
-    .hero-desc {
-      font-size: 1.05rem; color: rgba(255,255,255,0.72);
-      line-height: 1.75; max-width: 500px;
-      margin-bottom: 2.5rem; font-weight: 300;
+    .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue2);animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+    h1{
+      font-size:clamp(2.6rem,5.5vw,4.2rem);
+      font-weight:900;color:white;
+      line-height:1.08;letter-spacing:-0.03em;
+      margin-bottom:1.4rem;
+      animation:fadeUp 0.9s 0.1s ease both;
     }
-    .hero-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
-    .btn-main {
-      background: var(--blue); color: white;
-      padding: 1rem 2rem; border-radius: 4px;
-      text-decoration: none; font-weight: 700; font-size: 0.95rem;
-      transition: background 0.2s, transform 0.2s;
+    h1 .accent{color:var(--blue2)}
+    .hero-desc{
+      font-size:1rem;color:rgba(255,255,255,0.65);
+      line-height:1.75;font-weight:300;
+      max-width:460px;margin-bottom:2.4rem;
+      animation:fadeUp 0.9s 0.2s ease both;
     }
-    .btn-main:hover { background: var(--blue-lt); transform: translateY(-1px); }
-    .btn-ghost {
-      background: rgba(255,255,255,0.1);
-      border: 1.5px solid rgba(255,255,255,0.4);
-      color: white; padding: 1rem 2rem; border-radius: 4px;
-      text-decoration: none; font-weight: 500; font-size: 0.95rem;
-      transition: background 0.2s, border-color 0.2s;
+    .hero-btns{
+      display:flex;gap:1rem;flex-wrap:wrap;
+      margin-bottom:3rem;
+      animation:fadeUp 0.9s 0.3s ease both;
     }
-    .btn-ghost:hover { background: rgba(255,255,255,0.18); border-color: white; }
+    .btn-primary{
+      background:var(--blue);color:white;
+      padding:0.95rem 2rem;border-radius:8px;
+      text-decoration:none;font-weight:700;font-size:0.95rem;
+      display:inline-flex;align-items:center;gap:0.5rem;
+      box-shadow:0 8px 28px rgba(21,84,240,0.5);
+      transition:transform 0.2s,box-shadow 0.2s,background 0.2s;
+    }
+    .btn-primary:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 14px 36px rgba(21,84,240,0.6)}
+    .btn-secondary{
+      background:rgba(255,255,255,0.08);color:white;
+      border:1.5px solid rgba(255,255,255,0.25);
+      padding:0.95rem 2rem;border-radius:8px;
+      text-decoration:none;font-weight:600;font-size:0.95rem;
+      transition:background 0.2s,border-color 0.2s;
+    }
+    .btn-secondary:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.5)}
+    /* Stats row */
+    .hero-stats{
+      display:flex;gap:2.5rem;flex-wrap:wrap;
+      animation:fadeUp 0.9s 0.4s ease both;
+      padding-top:2rem;
+      border-top:1px solid rgba(255,255,255,0.1);
+    }
+    .hstat{display:flex;align-items:center;gap:0.75rem}
+    .hstat-icon{font-size:1.4rem;opacity:0.8}
+    .hstat-val{font-size:1rem;font-weight:800;color:white;display:block;line-height:1}
+    .hstat-lbl{font-size:0.68rem;color:rgba(255,255,255,0.45);letter-spacing:0.08em;text-transform:uppercase;margin-top:2px}
 
     /* ─── TICKER ─── */
-    .ticker { background: var(--navy); padding: 0.85rem 0; overflow: hidden; white-space: nowrap; }
-    .ticker-inner { display: inline-flex; animation: ticker 30s linear infinite; }
-    .ticker-item { display: inline-flex; align-items: center; gap: 1.5rem; padding: 0 2rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
-    .ticker-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--blue-lt); flex-shrink: 0; }
-    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker{
+      background:var(--blue);
+      padding:0.7rem 0;overflow:hidden;white-space:nowrap;
+    }
+    .ticker-inner{display:inline-flex;animation:ticker 25s linear infinite}
+    .ticker-item{
+      display:inline-flex;align-items:center;gap:1.2rem;
+      padding:0 1.8rem;
+      font-size:0.7rem;font-weight:700;
+      letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.85);
+    }
+    .ticker-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,0.5);flex-shrink:0}
+    @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
     /* ─── SECTIONS ─── */
-    section { padding: 6rem 6%; }
-    .section-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; }
-    .section-tag::after { content: ''; flex: 0 0 28px; height: 1.5px; background: var(--blue); }
-    h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 800; color: var(--navy); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1rem; }
-    .lead { font-size: 1rem; color: var(--muted); max-width: 560px; line-height: 1.75; font-weight: 300; }
+    section{padding:6rem 5%}
+    .stag{font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:0.8rem;display:flex;align-items:center;gap:8px}
+    .stag::after{content:'';flex:0 0 24px;height:2px;background:var(--blue2)}
+    h2{font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:900;line-height:1.1;letter-spacing:-0.025em;margin-bottom:1rem}
+    .lead{font-size:1rem;line-height:1.75;font-weight:300;max-width:540px}
 
-    /* ─── 3 HAUPTLEISTUNGEN (ALFA-Stil) ─── */
-    #hauptleistungen { background: var(--off); padding-top: 5rem; padding-bottom: 5rem; }
-    .haupt-header { text-align: center; margin-bottom: 3rem; }
-    .haupt-header .lead { margin: 0 auto; }
-    .haupt-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .haupt-card {
-      position: relative; border-radius: 6px; overflow: hidden;
-      aspect-ratio: 3/4; cursor: default;
+    /* ─── ÜBER UNS ─── */
+    #ueber{background:white;color:var(--text)}
+    #ueber h2{color:var(--text)}
+    #ueber h2 .accent{color:var(--blue)}
+    #ueber .lead{color:#4a5568}
+    .ueber-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem}
+    /* Service icon cards */
+    .service-icons{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+    .scard{
+      background:var(--off);border-radius:12px;padding:1.4rem 1rem;
+      text-align:center;transition:transform 0.3s,box-shadow 0.3s;
+      border:1px solid rgba(21,84,240,0.1);
     }
-    .haupt-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-    .haupt-card:hover img { transform: scale(1.05); }
-    .haupt-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(28,31,34,0.85) 0%, rgba(28,31,34,0.3) 50%, transparent 100%);
-      transition: background 0.3s;
+    .scard:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(21,84,240,0.15)}
+    .scard-icon{
+      width:52px;height:52px;margin:0 auto 0.8rem;
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      border-radius:12px;display:flex;align-items:center;justify-content:center;
+      font-size:1.4rem;box-shadow:0 4px 16px rgba(21,84,240,0.35);
     }
-    .haupt-card:hover .haupt-overlay { background: linear-gradient(to top, rgba(45,49,53,0.92) 0%, rgba(45,49,53,0.5) 60%, rgba(45,49,53,0.1) 100%); }
-    .haupt-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.8rem; }
-    .haupt-icon { font-size: 2rem; margin-bottom: 0.6rem; display: block; }
-    .haupt-title { font-size: 1.3rem; font-weight: 800; color: white; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-    .haupt-desc { font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.6; font-weight: 300; }
-    .haupt-line { width: 32px; height: 2px; background: var(--blue-lt); margin-bottom: 0.8rem; }
+    .scard h4{font-size:0.8rem;font-weight:700;color:var(--text);line-height:1.3}
 
-    /* ─── ALLE LEISTUNGEN ─── */
-    #leistungen { background: white; }
-    .leistungen-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
-    .leistungen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .karte { background: white; padding: 2rem 1.8rem; transition: background 0.25s; }
-    .karte:hover { background: #e8f1fb; }
-    .karte-num { font-size: 0.68rem; font-weight: 700; color: var(--border); letter-spacing: 0.1em; margin-bottom: 1.2rem; transition: color 0.25s; }
-    .karte:hover .karte-num { color: var(--blue); }
-    .karte-icon-wrap { width: 44px; height: 44px; border: 1px solid var(--border); border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; transition: background 0.25s, border-color 0.25s; }
-    .karte:hover .karte-icon-wrap { background: rgba(26,95,168,0.08); border-color: rgba(26,95,168,0.2); }
-    .karte-icon { font-size: 1.3rem; }
-    .karte h3 { font-size: 0.98rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
-    .karte p { font-size: 0.84rem; color: var(--muted); line-height: 1.7; font-weight: 300; }
+    /* ─── DIENSTLEISTUNGEN ─── */
+    #dienst{background:var(--navy2)}
+    .dienst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);margin-top:3rem}
+    .dkarte{
+      background:rgba(255,255,255,0.02);
+      padding:2rem 1.8rem;
+      display:flex;flex-direction:column;gap:1rem;
+      transition:background 0.25s;
+      position:relative;overflow:hidden;
+    }
+    .dkarte::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,var(--blue),var(--blue2));
+      transform:scaleX(0);transform-origin:left;transition:transform 0.35s ease;
+    }
+    .dkarte:hover{background:rgba(21,84,240,0.08)}
+    .dkarte:hover::before{transform:scaleX(1)}
+    .dkarte-num{font-size:0.65rem;font-weight:700;color:rgba(255,255,255,0.2);letter-spacing:0.12em}
+    .dkarte-icon{width:48px;height:48px;background:rgba(21,84,240,0.15);border:1px solid rgba(21,84,240,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+    .dkarte h3{font-size:0.95rem;font-weight:700;color:white}
+    .dkarte p{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300}
+    .dkarte-bar{width:20px;height:2px;background:var(--blue2);margin-top:auto;transition:width 0.3s}
+    .dkarte:hover .dkarte-bar{width:44px}
+
+    /* ─── VORHER NACHHER ─── */
+    #vnv{background:var(--navy);position:relative;overflow:hidden}
+    #vnv::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(21,84,240,0.12) 0%,transparent 70%);pointer-events:none}
+    .vnv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;perspective:1200px}
+    .vnv-card{
+      border-radius:16px;overflow:hidden;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 24px 64px rgba(0,0,0,0.4);
+      transition:transform 0.1s ease,box-shadow 0.3s ease;
+      transform-style:preserve-3d;
+      cursor:pointer;
+    }
+    .vnv-card:nth-child(2){margin-top:2rem}
+    .vnv-img-wrap{position:relative;height:220px;overflow:hidden}
+    .vnv-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+    .vnv-card:hover .vnv-img-wrap img{transform:scale(1.05)}
+    .dirty-layer{
+      position:absolute;inset:0;
+      transition:opacity 0.6s ease;
+    }
+    .vnv-card:hover .dirty-layer{opacity:0}
+    .vnv-badges{position:absolute;bottom:12px;left:12px;display:flex;gap:6px}
+    .badge-vor{background:rgba(200,80,0,0.9);color:white;font-size:0.58rem;font-weight:800;padding:3px 8px;border-radius:999px;letter-spacing:0.1em;transition:opacity 0.4s}
+    .badge-nach{background:var(--blue);color:white;font-size:0.58rem;font-weight:800;padding:3px 8px;border-radius:999px;letter-spacing:0.1em;opacity:0;transition:opacity 0.4s 0.2s}
+    .vnv-card:hover .badge-vor{opacity:0}
+    .vnv-card:hover .badge-nach{opacity:1}
+    .vnv-body{padding:1.5rem}
+    .vnv-body .ico{font-size:1.4rem;margin-bottom:0.5rem}
+    .vnv-body h3{font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.4rem}
+    .vnv-body p{font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.6;font-weight:300}
+    .vnv-bar{width:24px;height:2px;background:var(--blue2);margin-top:1rem;transition:width 0.3s}
+    .vnv-card:hover .vnv-bar{width:48px}
+    .culix-badge{position:absolute;top:12px;right:12px;background:var(--blue);color:white;font-size:0.58rem;font-weight:800;padding:3px 9px;border-radius:999px;letter-spacing:0.06em;box-shadow:0 4px 12px rgba(21,84,240,0.5)}
 
     /* ─── WARUM CULIX ─── */
-    #vorteile { background: var(--navy); }
-    #vorteile h2 { color: white; }
-    #vorteile .lead { color: rgba(255,255,255,0.5); }
-    .vorteile-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3rem; }
-    .vorteile-stats { display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.06); }
-    .v-stat { padding: 2rem; background: rgba(255,255,255,0.02); transition: background 0.2s; }
-    .v-stat:hover { background: rgba(43,127,212,0.12); }
-    .v-stat-num { font-size: 2.8rem; font-weight: 800; color: white; line-height: 1; }
-    .v-stat-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px; }
-    .vorteile-list { display: flex; flex-direction: column; }
-    .vorteil { display: flex; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); align-items: flex-start; }
-    .vorteil:first-child { padding-top: 0; }
-    .vorteil-num { font-size: 0.68rem; font-weight: 700; color: var(--blue-lt); letter-spacing: 0.1em; padding-top: 3px; flex-shrink: 0; }
-    .vorteil h4 { font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; color: white; }
-    .vorteil p { font-size: 0.87rem; color: rgba(255,255,255,0.5); line-height: 1.65; font-weight: 300; }
+    #warum{background:white;color:var(--text)}
+    #warum h2{color:var(--text)}
+    #warum .stag{color:var(--blue)}
+    #warum .stag::after{background:var(--blue)}
+    .warum-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem}
+    .warum-photo{border-radius:16px;overflow:hidden;aspect-ratio:4/5;position:relative}
+    .warum-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
+    .warum-photo-badge{
+      position:absolute;bottom:24px;left:-20px;
+      background:var(--blue);color:white;
+      padding:1.2rem 1.6rem;border-radius:12px;
+      box-shadow:0 12px 32px rgba(21,84,240,0.5);
+    }
+    .warum-photo-badge .num{font-size:2rem;font-weight:900;line-height:1}
+    .warum-photo-badge .lbl{font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:2px}
+    .warum-list{display:flex;flex-direction:column;gap:0}
+    .warum-item{
+      display:flex;gap:1.2rem;align-items:flex-start;
+      padding:1.4rem 0;border-bottom:1px solid #edf2f7;
+      transition:background 0.2s;
+    }
+    .warum-item:first-child{padding-top:0}
+    .warum-icon{
+      width:44px;height:44px;flex-shrink:0;
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.1rem;
+      box-shadow:0 4px 14px rgba(21,84,240,0.3);
+    }
+    .warum-item h4{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:0.25rem}
+    .warum-item p{font-size:0.82rem;color:#718096;line-height:1.6;font-weight:300}
 
     /* ─── ABLAUF ─── */
-    #ablauf { background: var(--off); }
-    .ablauf-intro { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
-    .ablauf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); }
-    .step { padding: 2.5rem 2rem; border-right: 1px solid var(--border); position: relative; }
-    .step:last-child { border-right: none; }
-    .step-num { font-size: 4rem; font-weight: 800; color: var(--border); line-height: 1; margin-bottom: 1.2rem; }
-    .step-bar { width: 28px; height: 2px; background: var(--blue); margin-bottom: 1rem; }
-    .step h4 { font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 0.5rem; }
-    .step p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
-
-    /* ─── ANRUF CTA (wie ALFA) ─── */
-    #cta {
-      background: var(--blue);
-      padding: 5rem 6%;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 2rem;
+    #ablauf{background:var(--navy2)}
+    .ablauf-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3rem;position:relative}
+    .ablauf-steps::before{content:'';position:absolute;top:32px;left:16%;right:16%;height:2px;background:linear-gradient(90deg,var(--blue),var(--blue2));opacity:0.3}
+    .astep{padding:2rem 1.8rem;text-align:center;position:relative}
+    .astep-num{
+      width:64px;height:64px;margin:0 auto 1.5rem;
+      background:linear-gradient(135deg,var(--blue),var(--blue2));
+      border-radius:50%;display:flex;align-items:center;justify-content:center;
+      font-size:1.4rem;font-weight:900;color:white;
+      box-shadow:0 8px 24px rgba(21,84,240,0.45);
+      position:relative;z-index:1;
     }
-    .cta-left h2 { color: white; margin-bottom: 0.5rem; }
-    .cta-left p { color: rgba(255,255,255,0.7); font-size: 1rem; font-weight: 300; }
-    .cta-right { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
-    .cta-phone {
-      display: flex; align-items: center; gap: 1rem;
-      background: white; border-radius: 6px;
-      padding: 1.2rem 2rem; text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .cta-phone:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.2); }
-    .cta-phone-icon { font-size: 1.8rem; animation: ring 2s infinite; }
-    .cta-phone-num { font-size: 1.4rem; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; }
-    .cta-phone-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 1px; }
-    .cta-wa {
-      display: flex; align-items: center; gap: 0.6rem;
-      background: #25d366; color: white; border-radius: 4px;
-      padding: 0.75rem 1.5rem; text-decoration: none;
-      font-weight: 700; font-size: 0.88rem;
-      transition: opacity 0.2s;
-    }
-    .cta-wa:hover { opacity: 0.88; }
-    @keyframes ring { 0%,100%{transform:rotate(0)} 10%{transform:rotate(12deg)} 20%{transform:rotate(-10deg)} 30%{transform:rotate(6deg)} 40%{transform:rotate(-3deg)} 50%{transform:rotate(0)} }
+    .astep h4{font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.5rem}
+    .astep p{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.65;font-weight:300}
 
     /* ─── KONTAKT ─── */
-    #kontakt { background: var(--navy); }
-    #kontakt h2 { color: white; }
-    #kontakt .lead { color: rgba(255,255,255,0.5); }
-    .kontakt-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; }
-    .kontakt-info { display: flex; flex-direction: column; }
-    .kontakt-item { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
-    .kontakt-icon { width: 36px; height: 36px; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
-    .kontakt-item h4 { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 3px; }
-    .kontakt-item p, .kontakt-item a { color: rgba(255,255,255,0.8); font-size: 0.93rem; text-decoration: none; }
-    .kontakt-item a:hover { color: white; }
-    .kontakt-buttons { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 0; }
-    .kontakt-cta-text { color: rgba(255,255,255,0.45); font-size: 0.88rem; margin-bottom: 1rem; font-weight: 300; line-height: 1.6; }
-    .btn-kontakt { display: flex; align-items: center; gap: 1.2rem; padding: 1.1rem 1.3rem; border-radius: 4px; text-decoration: none; border: 1px solid rgba(255,255,255,0.1); transition: border-color 0.2s, background 0.2s; }
-    .btn-wa { background: rgba(37,211,102,0.1); border-color: rgba(37,211,102,0.25); }
-    .btn-wa:hover { background: rgba(37,211,102,0.18); border-color: rgba(37,211,102,0.4); }
-    .btn-tel { background: rgba(43,127,212,0.1); border-color: rgba(43,127,212,0.25); }
-    .btn-tel:hover { background: rgba(43,127,212,0.18); }
-    .btn-em { background: rgba(255,255,255,0.04); }
-    .btn-em:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
-    .btn-kontakt-icon { font-size: 1.3rem; flex-shrink: 0; width: 28px; text-align: center; }
-    .btn-kontakt-body { display: flex; flex-direction: column; flex: 1; }
-    .btn-kontakt-label { font-size: 0.92rem; font-weight: 700; color: white; }
-    .btn-kontakt-desc { font-size: 0.76rem; color: rgba(255,255,255,0.4); margin-top: 2px; font-weight: 300; }
-    .btn-kontakt-arrow { font-size: 0.95rem; color: rgba(255,255,255,0.25); }
+    #kontakt{
+      background:linear-gradient(135deg,#020f24 0%,#041640 50%,#020b18 100%);
+      position:relative;overflow:hidden;
+    }
+    #kontakt::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(21,84,240,0.18) 0%,transparent 70%);pointer-events:none}
+    .kontakt-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+    .kontakt-info{display:flex;flex-direction:column;gap:0;margin-top:2rem}
+    .kitem{display:flex;align-items:center;gap:1.2rem;padding:1.2rem 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .kitem-icon{width:44px;height:44px;flex-shrink:0;background:rgba(21,84,240,0.15);border:1px solid rgba(21,84,240,0.3);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+    .kitem h4{font-size:0.65rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:2px}
+    .kitem a,.kitem p{color:rgba(255,255,255,0.85);font-size:0.92rem;text-decoration:none;display:block}
+    .kitem a:hover{color:white}
+    /* Chat bubble */
+    .chat-wrap{display:flex;flex-direction:column;gap:0.9rem;padding-top:1.5rem}
+    .chat-bubble-in{display:flex;align-items:flex-end;gap:0.7rem}
+    .chat-av{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0}
+    .bubble-in{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:14px 14px 14px 3px;padding:0.75rem 1rem;max-width:88%}
+    .bubble-in p{color:rgba(255,255,255,0.8);font-size:0.8rem;line-height:1.5;margin:0}
+    .bubble-in .ts{color:rgba(255,255,255,0.25);font-size:0.58rem;margin-top:4px;text-align:right}
+    .chat-bubble-out{display:flex;align-items:flex-end;gap:0.7rem;justify-content:flex-end}
+    .bubble-out{background:var(--blue);border-radius:14px 14px 3px 14px;padding:0.75rem 1rem;max-width:88%}
+    .bubble-out p{color:white;font-size:0.8rem;line-height:1.5;margin:0}
+    .bubble-out .ts{color:rgba(255,255,255,0.45);font-size:0.58rem;margin-top:4px;text-align:right}
+    .chat-av-culix{width:32px;height:32px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.7rem;font-weight:800}
+    .chat-actions{display:flex;flex-direction:column;gap:0.6rem;margin-top:0.4rem;padding-left:40px}
+    .chat-btn{
+      display:flex;align-items:center;gap:0.8rem;
+      border-radius:10px;padding:0.75rem 1rem;
+      text-decoration:none;transition:transform 0.15s,opacity 0.2s;
+    }
+    .chat-btn:hover{transform:translateX(4px)}
+    .chat-btn-tel{background:white;box-shadow:0 4px 16px rgba(0,0,0,0.2)}
+    .chat-btn-wa{background:#25d366;box-shadow:0 4px 16px rgba(37,211,102,0.3)}
+    .chat-btn-em{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12)}
+    .cbicon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0}
+    .cbicon-tel{background:#e8f0fe}
+    .cbicon-wa{background:rgba(255,255,255,0.2)}
+    .cbicon-em{background:rgba(255,255,255,0.08)}
+    .cb-title{font-size:0.82rem;font-weight:700}
+    .cb-sub{font-size:0.68rem;margin-top:1px}
+    .chat-btn-tel .cb-title{color:var(--text)}
+    .chat-btn-tel .cb-sub{color:#718096}
+    .chat-btn-wa .cb-title{color:white}
+    .chat-btn-wa .cb-sub{color:rgba(255,255,255,0.7)}
+    .chat-btn-em .cb-title{color:rgba(255,255,255,0.8)}
+    .chat-btn-em .cb-sub{color:rgba(255,255,255,0.4)}
+    .cb-arrow{margin-left:auto;font-size:0.85rem;opacity:0.4}
+    .chat-btn-tel .cb-arrow{color:var(--blue)}
+    .chat-btn-wa .cb-arrow{color:rgba(255,255,255,0.6)}
 
     /* ─── DISCLAIMER ─── */
-    .disclaimer { background: #f0f2f5; border-top: 1px solid var(--border); padding: 1.2rem 6%; font-size: 0.72rem; color: #aaa; line-height: 1.6; text-align: center; }
+    .disclaimer{background:#010810;padding:1rem 5%;text-align:center;font-size:0.7rem;color:rgba(255,255,255,0.2);line-height:1.6}
 
     /* ─── FOOTER ─── */
-    footer { background: var(--black); color: rgba(255,255,255,0.35); padding: 2rem 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; }
-    footer a { color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s; }
-    footer a:hover { color: white; }
-    .footer-links { display: flex; gap: 2rem; }
+    footer{
+      background:#010810;border-top:1px solid rgba(255,255,255,0.06);
+      padding:1.5rem 5%;
+      display:flex;justify-content:space-between;align-items:center;
+      flex-wrap:wrap;gap:1rem;font-size:0.78rem;color:rgba(255,255,255,0.3);
+    }
+    footer a{color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s}
+    footer a:hover{color:white}
+    .footer-links{display:flex;gap:1.8rem;flex-wrap:wrap}
 
-    /* ─── WHATSAPP BUBBLE ─── */
-    .wa-bubble {
-      position: fixed; bottom: 2rem; left: 2rem; z-index: 200;
-      display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem;
+    /* ─── WHATSAPP FLOAT ─── */
+    .wa-float{
+      position:fixed;bottom:1.8rem;left:1.8rem;z-index:300;
+      display:flex;flex-direction:column;align-items:flex-start;gap:0.5rem;
     }
-    .wa-bubble-btn {
-      display: flex; align-items: center; gap: 0.7rem;
-      background: #25d366; color: white;
-      border-radius: 999px; padding: 0.75rem 1.3rem;
-      text-decoration: none; font-weight: 700; font-size: 0.88rem;
-      box-shadow: 0 6px 24px rgba(37,211,102,0.45);
-      transition: transform 0.2s, box-shadow 0.2s;
-      animation: waPulse 2.5s infinite;
+    .wa-tip{
+      background:white;color:var(--text);
+      border-radius:10px 10px 10px 3px;
+      padding:0.5rem 0.9rem;font-size:0.75rem;font-weight:600;
+      box-shadow:0 4px 20px rgba(0,0,0,0.2);white-space:nowrap;
+      animation:fadeUp 0.6s 1s both;
     }
-    .wa-bubble-btn:hover { transform: scale(1.05); box-shadow: 0 10px 32px rgba(37,211,102,0.6); animation: none; }
-    .wa-tooltip {
-      background: white; color: var(--navy);
-      border-radius: 12px 12px 12px 4px;
-      padding: 0.6rem 1rem; font-size: 0.8rem; font-weight: 600;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      white-space: nowrap;
-      animation: fadeIn 0.5s ease 1s both;
+    .wa-btn{
+      display:flex;align-items:center;gap:0.7rem;
+      background:#25d366;color:white;
+      border-radius:999px;padding:0.75rem 1.3rem;
+      text-decoration:none;font-weight:700;font-size:0.85rem;
+      box-shadow:0 6px 24px rgba(37,211,102,0.5);
+      animation:waPulse 2.5s infinite;
+      transition:transform 0.2s;
     }
-    @keyframes waPulse {
-      0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.45); }
-      50% { box-shadow: 0 6px 32px rgba(37,211,102,0.75), 0 0 0 8px rgba(37,211,102,0.1); }
-    }
-    @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+    .wa-btn:hover{transform:scale(1.05);animation:none}
+    @keyframes waPulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.5)}50%{box-shadow:0 6px 32px rgba(37,211,102,0.75),0 0 0 8px rgba(37,211,102,0.1)}}
 
-    /* ─── REVEAL ─── */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* ─── SCROLL REVEAL ─── */
+    .r{opacity:0;transform:translateY(35px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+    .rl{opacity:0;transform:translateX(-40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+    .rr{opacity:0;transform:translateX(40px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1)}
+    .rs{opacity:0;transform:scale(0.88);transition:opacity 0.7s ease,transform 0.7s cubic-bezier(0.34,1.56,0.64,1)}
+    .r.v,.rl.v,.rr.v,.rs.v{opacity:1;transform:none}
+
+    /* ─── KEYFRAMES ─── */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
 
     /* ─── RESPONSIVE ─── */
-    @media (max-width: 1024px) {
-      .haupt-grid { grid-template-columns: 1fr 1fr; }
-      .haupt-grid .haupt-card:last-child { grid-column: 1 / -1; aspect-ratio: 16/7; }
-      .leistungen-grid { grid-template-columns: repeat(2,1fr); }
-      .ablauf-grid { grid-template-columns: 1fr; }
-      .step { border-right: none; border-bottom: 1px solid var(--border); }
-      .step:last-child { border-bottom: none; }
+    @media(max-width:1024px){
+      .dienst-grid{grid-template-columns:repeat(2,1fr)}
+      .service-icons{grid-template-columns:repeat(3,1fr)}
+      .vnv-grid{grid-template-columns:1fr 1fr}
+      .vnv-card:nth-child(3){display:none}
     }
-    @media (max-width: 900px) {
-      nav ul { display: none; }
-      nav ul.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: white; padding: 1.5rem 6%; gap: 1rem; border-bottom: 1px solid var(--border); z-index: 99; }
-      .hamburger { display: flex; }
-      .vorteile-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .kontakt-layout { grid-template-columns: 1fr; gap: 3rem; }
-      #cta { flex-direction: column; align-items: flex-start; }
-      .cta-right { align-items: flex-start; }
+    @media(max-width:860px){
+      nav ul{display:none}
+      nav ul.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:rgba(2,11,24,0.98);padding:1.5rem 5%;gap:1.2rem;border-bottom:1px solid var(--border);z-index:100;backdrop-filter:blur(20px)}
+      .hamburger{display:flex}
+      .hero-photo{width:100%;opacity:0.25}
+      .ueber-layout,.warum-layout,.kontakt-layout{grid-template-columns:1fr;gap:2.5rem}
+      .warum-photo-badge{left:0;bottom:-10px}
+      .ablauf-steps{grid-template-columns:1fr;gap:0}
+      .ablauf-steps::before{display:none}
     }
-    @media (max-width: 600px) {
-      section { padding: 4rem 5%; }
-      .haupt-grid { grid-template-columns: 1fr; }
-      .haupt-card { aspect-ratio: 4/3; }
-      .haupt-grid .haupt-card:last-child { grid-column: auto; }
-      .leistungen-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; }
+    @media(max-width:600px){
+      section{padding:3.5rem 5%!important}
+      h1{font-size:2.2rem!important}
+      h2{font-size:1.65rem!important}
+      .hero-content{padding:100px 5% 60px}
+      .hero-btns{flex-direction:column}
+      .btn-primary,.btn-secondary{text-align:center;justify-content:center;width:100%;padding:1rem 1.5rem}
+      .hero-stats{gap:1.2rem}
+      .hstat-val{font-size:0.9rem}
+      .vnv-grid{grid-template-columns:1fr!important}
+      .vnv-card:nth-child(2){margin-top:0}
+      .vnv-card:nth-child(3){display:block}
+      .dienst-grid{grid-template-columns:1fr!important}
+      .service-icons{grid-template-columns:repeat(2,1fr)}
+      footer{flex-direction:column;text-align:center}
+      .footer-links{justify-content:center}
+      .wa-tip{display:none}
+    }
+    @media(max-width:380px){
+      h1{font-size:1.9rem!important}
     }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav id="navbar">
+<nav id="nav">
   <a class="logo" href="#">
-    <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2L2 9v13h7v-7h6v7h7V9L12 2z" fill="white"/></svg></div>
-    <div><div class="logo-name">Culix</div><div class="logo-sub">Reinigung & Hauswartung</div></div>
+    <div class="logo-icon">C✦</div>
+    <div class="logo-text">
+      <span class="brand">CULIX</span>
+      <span class="sub">Reinigung & Hauswartung</span>
+    </div>
   </a>
   <ul id="nav-menu">
-    <li><a href="#leistungen">Leistungen</a></li>
-    <li><a href="#vorteile">Über uns</a></li>
-    <li><a href="#ablauf">Ablauf</a></li>
-    <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+    <li><a href="#ueber">Über uns</a></li>
+    <li><a href="#dienst">Dienstleistungen</a></li>
+    <li><a href="#warum">Referenzen</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
   </ul>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
+  <a href="#kontakt" class="nav-btn">Offerte anfragen</a>
+  <div class="hamburger" id="hbg" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
+  <div class="hero-stars"></div>
+  <div class="hero-glow"></div>
   <div class="hero-photo"></div>
-  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-tag">Professionell · Zuverlässig · Schweiz</div>
-    <h1>Reinigung &<br/><span>Hauswartung.</span></h1>
-    <p class="hero-desc">Culix steht für makellose Sauberkeit und zuverlässige Hauswartung – für Privathaushalte, Büros und Liegenschaften. Wir denken voraus, damit Sie sich zurücklehnen können.</p>
+    <div class="hero-badge">Professionell. Zuverlässig. Gründlich.</div>
+    <h1>Sauberkeit, auf die<br/>Sie sich <span class="accent">verlassen.</span></h1>
+    <p class="hero-desc">Culix Reinigung & Hauswartung steht für höchste Qualität, Zuverlässigkeit und diskreten Service. Wir kümmern uns – damit Sie sich auf das Wesentliche konzentrieren können.</p>
     <div class="hero-btns">
-      <a href="#kontakt" class="btn-main">Offerte anfragen</a>
-      <a href="#leistungen" class="btn-ghost">Leistungen ansehen</a>
+      <a href="#kontakt" class="btn-primary">Offerte anfragen →</a>
+      <a href="#dienst" class="btn-secondary">Unsere Dienstleistungen</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-icon">🛡️</span><div><span class="hstat-val">100%</span><span class="hstat-lbl">Zuverlässigkeit</span></div></div>
+      <div class="hstat"><span class="hstat-icon">⭐</span><div><span class="hstat-val">15+</span><span class="hstat-lbl">Jahre Erfahrung</span></div></div>
+      <div class="hstat"><span class="hstat-icon">👥</span><div><span class="hstat-val">Zufriedene</span><span class="hstat-lbl">Kunden</span></div></div>
+      <div class="hstat"><span class="hstat-icon">📍</span><div><span class="hstat-val">Regional</span><span class="hstat-lbl">Für Sie da</span></div></div>
     </div>
   </div>
 </section>
@@ -354,399 +512,275 @@
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span class="ticker-item"><span class="ticker-dot"></span>Haushaltsreinigung</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Büroreinigung</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Reinigung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Hauswartung</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Unterhaltsreinigung</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Gebäudeservice</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Gartenpflege</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Technischer Dienst</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Endreinigung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Entsorgung</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Gartenunterhalt</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Fensterreinigung</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Polsterreinigung</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Haushaltsreinigung</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Büroreinigung</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Reinigung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Hauswartung</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Unterhaltsreinigung</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Gebäudeservice</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Gartenpflege</span>
+    <span class="ticker-item"><span class="ticker-dot"></span>Technischer Dienst</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Endreinigung</span>
     <span class="ticker-item"><span class="ticker-dot"></span>Entsorgung</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Gartenunterhalt</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Fensterreinigung</span>
-    <span class="ticker-item"><span class="ticker-dot"></span>Polsterreinigung</span>
   </div>
 </div>
 
-<!-- 3 HAUPTLEISTUNGEN - Rad-Stil mit Icons -->
-<section id="hauptleistungen" style="background:var(--off); padding:5rem 6%;">
-  <div class="haupt-header">
-    <div class="section-tag" style="justify-content:center;">Unsere Kernleistungen</div>
-    <h2 style="text-align:center;">Was wir für Sie tun</h2>
-    <p class="lead" style="text-align:center; margin:0.5rem auto 3rem;">Von der Reinigung bis zur vollständigen Hauswartung – alles aus einer Hand.</p>
+<!-- ÜBER UNS -->
+<section id="ueber">
+  <div class="ueber-layout">
+    <div class="rl">
+      <div class="stag">Über uns</div>
+      <h2>Ihr Partner für <span class="accent">Sauberkeit</span><br/>und Werterhalt.</h2>
+      <p class="lead" style="color:#4a5568;margin-top:1rem">Mit über 15 Jahren Erfahrung in der Reinigungs- und Hauswartungsbranche kennt Culix die Bedürfnisse von Privathaushalten, Unternehmen und Liegenschaftsbesitzern genau.</p>
+      <p class="lead" style="color:#4a5568;margin-top:0.8rem">Bei uns erreichen Sie immer direkt Resul Selimi – persönlich, zuverlässig und auf Augenhöhe.</p>
+      <div style="margin-top:1.5rem;padding:1.2rem 1.5rem;background:var(--off);border-radius:10px;border-left:3px solid var(--blue)">
+        <p style="font-style:italic;color:var(--text);font-size:0.92rem;line-height:1.7">"Sauberkeit ist keine Frage des Budgets – sondern des Anspruchs. Dafür stehe ich mit meinem Namen."</p>
+        <p style="font-size:0.72rem;font-weight:700;color:var(--blue);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.5rem">– Resul Selimi, Geschäftsführer</p>
+      </div>
+    </div>
+    <div class="rr">
+      <div class="service-icons">
+        <div class="scard rs"><div class="scard-icon">🏢</div><h4>Gebäude­reinigung</h4></div>
+        <div class="scard rs"><div class="scard-icon">🔧</div><h4>Hauswartung</h4></div>
+        <div class="scard rs"><div class="scard-icon">🌿</div><h4>Gartenpflege</h4></div>
+        <div class="scard rs"><div class="scard-icon">🪟</div><h4>Fenster­reinigung</h4></div>
+        <div class="scard rs"><div class="scard-icon">🛋️</div><h4>Polster­reinigung</h4></div>
+        <div class="scard rs"><div class="scard-icon">🗑️</div><h4>Entsorgung</h4></div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <!-- 3 Karten mit kleinen Bildern oben -->
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;">
+<!-- DIENSTLEISTUNGEN -->
+<section id="dienst">
+  <div class="r">
+    <div class="stag">Dienstleistungen</div>
+    <h2 style="color:white">Alles aus einer Hand.</h2>
+    <p class="lead" style="color:rgba(255,255,255,0.5)">9 Leistungen – ein zuverlässiger Ansprechpartner.</p>
+  </div>
+  <div class="dienst-grid">
+    <div class="dkarte r"><div class="dkarte-num">01</div><div class="dkarte-icon">🏠</div><h3>Haushaltsreinigung</h3><p>Wohnung & Haus – diskret, verlässlich und regelmässig.</p><div class="dkarte-bar"></div></div>
+    <div class="dkarte r"><div class="dkarte-num">02</div><div class="dkarte-icon">🏢</div><h3>Büro & Gewerbe</h3><p>Saubere Arbeitsräume – auch ausserhalb der Geschäftszeiten.</p><div class="dkarte-bar"></div></div>
+    <div class="dkarte r"><div class="dkarte-num">03</div><div class="dkarte-icon">🏗️</div><h3>Unterhaltsreinigung</h3><p>Treppenhäuser & Allgemeinbereiche – laufend gepflegt.</p><div class="dkarte-bar"></div></div>
+    <div class="dkarte r"><div class="dkarte-num">04</div><div class="dkarte-icon">🔑</div><h3>Endreinigung</h3><p>Wohnungsübergabe – sauber, gründlich, termingerecht.</p><div class="dkarte-bar"></div></div>
+    <div class="dkarte r"><div class="dkarte-num">05</div><div class="dkarte-icon">🛠️</div><h3>Hauswartung</h3><p>Kontrolle, Kleinreparaturen & Koordination inklusive.</p><div class="dkarte-bar"></div></div>
+    <div class="dkarte r"><div class="dkarte-num">06</div><div class="dkarte-icon">🗑️</div><h3>Entsorgung</h3><p>Sperrgut, Kehricht & Sondermüll – fachgerecht entsorgt.</p><div class="dkarte-bar"></div></div>
+    <div class="dkarte r"><div class="dkarte-num">07</div><div class="dkarte-icon">🌿</div><h3>Gartenunterhalt</h3><p>Rasenmähen, Hecken, Laub – das ganze Jahr gepflegt.</p><div class="dkarte-bar"></div></div>
+    <div class="dkarte r"><div class="dkarte-num">08</div><div class="dkarte-icon">🪟</div><h3>Fensterreinigung</h3><p>Kristallklar, innen & aussen – professionell gereinigt.</p><div class="dkarte-bar"></div></div>
+    <div class="dkarte r"><div class="dkarte-num">09</div><div class="dkarte-icon">🛋️</div><h3>Polsterreinigung</h3><p>Sofas & Sessel – hygienisch frisch gereinigt.</p><div class="dkarte-bar"></div></div>
+  </div>
+</section>
 
-    <div class="reveal" style="background:white; border-radius:8px; overflow:hidden; border:1px solid var(--border); transition:transform 0.3s, box-shadow 0.3s;"
-         onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)'"
-         onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-      <div style="height:160px; overflow:hidden; position:relative;">
-        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" alt="Reinigung" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(45,49,53,0.6),transparent);"></div>
-        <div style="position:absolute;bottom:12px;left:14px;width:42px;height:42px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,0.3);">🧹</div>
+<!-- VORHER / NACHHER -->
+<section id="vnv">
+  <div class="r" style="text-align:center;margin-bottom:3rem">
+    <div class="stag" style="justify-content:center">Das Culix Versprechen</div>
+    <h2 style="color:white">Von <span style="color:rgba(255,100,50,0.9)">schmutzig</span> zu <span style="color:var(--blue2)">makellos.</span></h2>
+    <p class="lead" style="color:rgba(255,255,255,0.45);margin:0.5rem auto 0;text-align:center">Fahren Sie über die Karte um den Unterschied zu sehen.</p>
+  </div>
+  <div class="vnv-grid">
+
+    <!-- Fenster -->
+    <div class="vnv-card r" onmousemove="tilt(this,event)" onmouseleave="resetTilt(this)">
+      <div class="vnv-img-wrap">
+        <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?w=600&q=80" alt="Fensterreinigung nach"/>
+        <div class="dirty-layer" style="background:linear-gradient(135deg,rgba(40,28,8,0.82),rgba(55,40,10,0.5) 50%,rgba(30,20,5,0.15));mix-blend-mode:multiply"></div>
+        <div class="dirty-layer" style="background:url('https://www.transparenttextures.com/patterns/dirty-old-shirt.png');opacity:0.35;mix-blend-mode:overlay"></div>
+        <div class="vnv-badges"><span class="badge-vor">VOR</span><span class="badge-nach">NACH</span></div>
+        <div class="culix-badge">CULIX</div>
       </div>
-      <div style="padding:1.4rem;">
-        <h3 style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">Reinigung</h3>
-        <p style="font-size:0.84rem;color:var(--muted);line-height:1.65;font-weight:300;">Haushalt, Büro, Gewerbe, Endreinigung – professionell und gründlich.</p>
-        <div style="margin-top:1rem;font-size:0.78rem;font-weight:700;color:var(--blue);letter-spacing:0.05em;">Mehr erfahren →</div>
-      </div>
+      <div class="vnv-body"><div class="ico">🪟</div><h3>Fensterreinigung</h3><p>Von fettig & staubig zu kristallklar – innen und aussen.</p><div class="vnv-bar"></div></div>
     </div>
 
-    <div class="reveal" style="background:white; border-radius:8px; overflow:hidden; border:1px solid var(--border); transition:transform 0.3s, box-shadow 0.3s;"
-         onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)'"
-         onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-      <div style="height:160px; overflow:hidden; position:relative;">
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Hauswartung" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(45,49,53,0.6),transparent);"></div>
-        <div style="position:absolute;bottom:12px;left:14px;width:42px;height:42px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,0.3);">🛠️</div>
+    <!-- Büro -->
+    <div class="vnv-card r" onmousemove="tilt(this,event)" onmouseleave="resetTilt(this)">
+      <div class="vnv-img-wrap">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Büroreinigung nach"/>
+        <div class="dirty-layer" style="background:linear-gradient(135deg,rgba(20,15,10,0.85),rgba(35,25,15,0.5) 50%,rgba(20,15,10,0.1));mix-blend-mode:multiply"></div>
+        <div class="dirty-layer" style="background:repeating-linear-gradient(45deg,transparent,transparent 2px,rgba(0,0,0,0.03) 2px,rgba(0,0,0,0.03) 4px);opacity:0.8"></div>
+        <div class="vnv-badges"><span class="badge-vor">VOR</span><span class="badge-nach">NACH</span></div>
+        <div class="culix-badge">CULIX</div>
       </div>
-      <div style="padding:1.4rem;">
-        <h3 style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">Hauswartung</h3>
-        <p style="font-size:0.84rem;color:var(--muted);line-height:1.65;font-weight:300;">Vollständige Betreuung Ihrer Liegenschaft – zuverlässig das ganze Jahr.</p>
-        <div style="margin-top:1rem;font-size:0.78rem;font-weight:700;color:var(--blue);letter-spacing:0.05em;">Mehr erfahren →</div>
-      </div>
+      <div class="vnv-body"><div class="ico">🏢</div><h3>Büroreinigung</h3><p>Von staubig & unordentlich zu frisch & produktiv.</p><div class="vnv-bar"></div></div>
     </div>
 
-    <div class="reveal" style="background:white; border-radius:8px; overflow:hidden; border:1px solid var(--border); transition:transform 0.3s, box-shadow 0.3s;"
-         onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 20px 40px rgba(0,0,0,0.1)'"
-         onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
-      <div style="height:160px; overflow:hidden; position:relative;">
-        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" alt="Garten & Entsorgung" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(45,49,53,0.6),transparent);"></div>
-        <div style="position:absolute;bottom:12px;left:14px;width:42px;height:42px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,0.3);">🌿</div>
+    <!-- Sofa -->
+    <div class="vnv-card r" onmousemove="tilt(this,event)" onmouseleave="resetTilt(this)">
+      <div class="vnv-img-wrap">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80" alt="Polsterreinigung nach"/>
+        <div class="dirty-layer" style="background:linear-gradient(135deg,rgba(50,30,10,0.88),rgba(60,40,15,0.5) 50%,rgba(40,25,8,0.1));mix-blend-mode:multiply"></div>
+        <div class="dirty-layer" style="background:radial-gradient(ellipse at 30% 40%,rgba(80,50,0,0.4),transparent 60%);"></div>
+        <div class="vnv-badges"><span class="badge-vor">VOR</span><span class="badge-nach">NACH</span></div>
+        <div class="culix-badge">CULIX</div>
       </div>
-      <div style="padding:1.4rem;">
-        <h3 style="font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;">Garten & Entsorgung</h3>
-        <p style="font-size:0.84rem;color:var(--muted);line-height:1.65;font-weight:300;">Gartenunterhalt, Sperrgut und Entsorgung – sauber und unkompliziert.</p>
-        <div style="margin-top:1rem;font-size:0.78rem;font-weight:700;color:var(--blue);letter-spacing:0.05em;">Mehr erfahren →</div>
-      </div>
+      <div class="vnv-body"><div class="ico">🛋️</div><h3>Polsterreinigung</h3><p>Von fleckig & abgenutzt zu hygienisch frisch & wie neu.</p><div class="vnv-bar"></div></div>
     </div>
 
   </div>
 </section>
-
-<!-- ALLE LEISTUNGEN -->
-<section id="leistungen" style="background:var(--navy); padding:6rem 6%;">
-  <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:3rem; flex-wrap:wrap; gap:1rem;">
-    <div>
-      <div class="section-tag" style="color:rgba(255,255,255,0.4);">Vollständiges Angebot</div>
-      <h2 style="color:white;">9 Leistungen.<br/>Ein Ansprechpartner.</h2>
-    </div>
-    <a href="#kontakt" style="display:inline-flex; align-items:center; gap:0.5rem; background:var(--blue); color:white; text-decoration:none; padding:0.75rem 1.5rem; border-radius:4px; font-weight:700; font-size:0.88rem; white-space:nowrap;">Offerte anfragen →</a>
-  </div>
-
-  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.07);">
-
-    <div class="lst-item reveal" style="background:rgba(255,255,255,0.03); padding:1.8rem; display:flex; flex-direction:column; gap:1rem; transition:background 0.2s, transform 0.2s; cursor:default;">
-      <div style="width:52px;height:52px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(107,114,128,0.3);">🏠</div>
-      <div>
-        <h3 style="font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.4rem;">Haushaltsreinigung</h3>
-        <p style="font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300;">Wohnung & Haus – diskret, verlässlich, regelmässig.</p>
-      </div>
-      <div style="width:24px;height:2px;background:var(--blue);margin-top:auto;transition:width 0.3s;" class="lst-bar"></div>
-    </div>
-
-    <div class="lst-item reveal" style="background:rgba(255,255,255,0.03); padding:1.8rem; display:flex; flex-direction:column; gap:1rem; transition:background 0.2s; cursor:default;">
-      <div style="width:52px;height:52px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(107,114,128,0.3);">🏢</div>
-      <div>
-        <h3 style="font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.4rem;">Büro & Gewerbe</h3>
-        <p style="font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300;">Saubere Büros & Gewerberäume – auch ausserhalb der Geschäftszeiten.</p>
-      </div>
-      <div style="width:24px;height:2px;background:var(--blue);margin-top:auto;" class="lst-bar"></div>
-    </div>
-
-    <div class="lst-item reveal" style="background:rgba(255,255,255,0.03); padding:1.8rem; display:flex; flex-direction:column; gap:1rem; transition:background 0.2s; cursor:default;">
-      <div style="width:52px;height:52px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(107,114,128,0.3);">🏗️</div>
-      <div>
-        <h3 style="font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.4rem;">Unterhaltsreinigung</h3>
-        <p style="font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300;">Treppenhäuser, Einstellhallen – laufend gepflegt.</p>
-      </div>
-      <div style="width:24px;height:2px;background:var(--blue);margin-top:auto;" class="lst-bar"></div>
-    </div>
-
-    <div class="lst-item reveal" style="background:rgba(255,255,255,0.03); padding:1.8rem; display:flex; flex-direction:column; gap:1rem; transition:background 0.2s; cursor:default;">
-      <div style="width:52px;height:52px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(107,114,128,0.3);">🔑</div>
-      <div>
-        <h3 style="font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.4rem;">Endreinigung</h3>
-        <p style="font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300;">Wohnungsübergabe – sauber, gründlich und termingerecht.</p>
-      </div>
-      <div style="width:24px;height:2px;background:var(--blue);margin-top:auto;" class="lst-bar"></div>
-    </div>
-
-    <div class="lst-item reveal" style="background:rgba(255,255,255,0.03); padding:1.8rem; display:flex; flex-direction:column; gap:1rem; transition:background 0.2s; cursor:default;">
-      <div style="width:52px;height:52px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(107,114,128,0.3);">🛠️</div>
-      <div>
-        <h3 style="font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.4rem;">Hauswartung</h3>
-        <p style="font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300;">Kontrolle, Kleinreparaturen, Koordination – alles inklusive.</p>
-      </div>
-      <div style="width:24px;height:2px;background:var(--blue);margin-top:auto;" class="lst-bar"></div>
-    </div>
-
-    <div class="lst-item reveal" style="background:rgba(255,255,255,0.03); padding:1.8rem; display:flex; flex-direction:column; gap:1rem; transition:background 0.2s; cursor:default;">
-      <div style="width:52px;height:52px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(107,114,128,0.3);">🗑️</div>
-      <div>
-        <h3 style="font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.4rem;">Entsorgung</h3>
-        <p style="font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300;">Sperrgut, Kehricht, Sondermüll – fachgerecht entsorgt.</p>
-      </div>
-      <div style="width:24px;height:2px;background:var(--blue);margin-top:auto;" class="lst-bar"></div>
-    </div>
-
-    <div class="lst-item reveal" style="background:rgba(255,255,255,0.03); padding:1.8rem; display:flex; flex-direction:column; gap:1rem; transition:background 0.2s; cursor:default;">
-      <div style="width:52px;height:52px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(107,114,128,0.3);">🌿</div>
-      <div>
-        <h3 style="font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.4rem;">Gartenunterhalt</h3>
-        <p style="font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300;">Rasenmähen, Hecken, Laub – das ganze Jahr gepflegt.</p>
-      </div>
-      <div style="width:24px;height:2px;background:var(--blue);margin-top:auto;" class="lst-bar"></div>
-    </div>
-
-    <div class="lst-item reveal" style="background:rgba(255,255,255,0.03); padding:1.8rem; display:flex; flex-direction:column; gap:1rem; transition:background 0.2s; cursor:default;">
-      <div style="width:52px;height:52px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(107,114,128,0.3);">🪟</div>
-      <div>
-        <h3 style="font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.4rem;">Fensterreinigung</h3>
-        <p style="font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300;">Streifenfrei, innen & aussen – professionell gereinigt.</p>
-      </div>
-      <div style="width:24px;height:2px;background:var(--blue);margin-top:auto;" class="lst-bar"></div>
-    </div>
-
-    <div class="lst-item reveal" style="background:rgba(255,255,255,0.03); padding:1.8rem; display:flex; flex-direction:column; gap:1rem; transition:background 0.2s; cursor:default;">
-      <div style="width:52px;height:52px;background:var(--blue);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(107,114,128,0.3);">🛋️</div>
-      <div>
-        <h3 style="font-size:0.95rem;font-weight:700;color:white;margin-bottom:0.4rem;">Polsterreinigung</h3>
-        <p style="font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;font-weight:300;">Sofas & Sessel – hygienisch und frisch gereinigt.</p>
-      </div>
-      <div style="width:24px;height:2px;background:var(--blue);margin-top:auto;" class="lst-bar"></div>
-    </div>
-
-  </div>
-</section>
-
-<style>
-  .lst-item:hover { background: rgba(107,114,128,0.15) !important; }
-  .lst-item:hover .lst-bar { width: 48px !important; }
-</style>
 
 <!-- WARUM CULIX -->
-<section id="vorteile">
-  <div class="vorteile-layout">
-    <div class="reveal">
-      <div class="section-tag" style="color:rgba(255,255,255,0.4);">Über uns</div>
-      <h2>Warum Culix?</h2>
-      <p class="lead" style="margin-bottom:2.5rem;">Wir sind mehr als ein Reinigungsunternehmen – ein verlässlicher Partner für alles rund um Ihre Liegenschaft.</p>
-      <div class="vorteile-stats">
-        <div class="v-stat"><div class="v-stat-num" data-count="15" data-suffix="+">0+</div><div class="v-stat-label">Jahre Erfahrung</div></div>
-        <div class="v-stat"><div class="v-stat-num" data-count="100" data-suffix="%">0%</div><div class="v-stat-label">Qualitätsversprechen</div></div>
-        <div class="v-stat"><div class="v-stat-num" style="font-size:1.6rem; line-height:1.3;">Lokal &<br/>persönlich</div><div class="v-stat-label">Ihr Partner vor Ort</div></div>
+<section id="warum">
+  <div class="warum-layout">
+    <div class="rl">
+      <div class="warum-photo">
+        <img src="Resul_Hauswartung.jpeg" alt="Resul Selimi"/>
+        <div class="warum-photo-badge"><div class="num">15+</div><div class="lbl">Jahre Erfahrung</div></div>
       </div>
     </div>
-    <div class="reveal">
-      <div class="vorteile-list">
-        <div class="vorteil"><div class="vorteil-num">01</div><div><h4>Geprüftes & geschultes Personal</h4><p>Alle Mitarbeitenden sind sorgfältig ausgewählt und kennen professionelle Reinigungsstandards.</p></div></div>
-        <div class="vorteil"><div class="vorteil-num">02</div><div><h4>Pünktlich & zuverlässig</h4><p>Wir erscheinen wann vereinbart – ohne Ausreden. Zuverlässigkeit ist unser Grundprinzip.</p></div></div>
-        <div class="vorteil"><div class="vorteil-num">03</div><div><h4>Auf Wunsch auch samstags</h4><p>Wir richten uns nach Ihrem Alltag – auch Samstagseinsätze sind bei uns möglich.</p></div></div>
-        <div class="vorteil"><div class="vorteil-num">04</div><div><h4>Flexible Termine & faire Preise</h4><p>Klare Offerten, keine versteckten Kosten. Wir passen uns Ihrem Alltag an.</p></div></div>
+    <div class="rr">
+      <div class="stag">Warum Culix</div>
+      <h2>Persönlich.<br/><span class="accent">Zuverlässig.</span> Vor Ort.</h2>
+      <p class="lead" style="color:#4a5568;margin-bottom:1.5rem">Kein anonymes Callcenter – Sie erreichen mich direkt. Ihr Auftrag liegt mir persönlich am Herzen.</p>
+      <div class="warum-list">
+        <div class="warum-item r"><div class="warum-icon">✓</div><div><h4>Geprüftes & geschultes Personal</h4><p>Sorgfältig ausgewählt, professionell ausgebildet.</p></div></div>
+        <div class="warum-item r"><div class="warum-icon">⏰</div><div><h4>Pünktlich & zuverlässig</h4><p>Wir kommen wann vereinbart – ohne Ausreden.</p></div></div>
+        <div class="warum-item r"><div class="warum-icon">📅</div><div><h4>Auf Wunsch auch samstags</h4><p>Wir richten uns nach Ihrem Alltag.</p></div></div>
+        <div class="warum-item r"><div class="warum-icon">💰</div><div><h4>Faire Preise & klare Offerten</h4><p>Keine versteckten Kosten – transparent von Anfang an.</p></div></div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section id="team" style="background:var(--off); padding:6rem 6%;">
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;">
-
-    <!-- Bild -->
-    <div class="reveal" style="position:relative;">
-      <div style="border-radius:6px; overflow:hidden; aspect-ratio:4/5; position:relative;">
-        <img src="Resul_Hauswartung.jpeg" alt="Resul Selimi – Geschäftsführer Culix"
-             style="width:100%; height:100%; object-fit:cover; object-position:center top;" />
-      </div>
-      <!-- Dekoratives Element -->
-      <div style="position:absolute; top:-16px; left:-16px; width:80px; height:80px; border:3px solid var(--blue); border-radius:4px; z-index:-1;"></div>
-      <div style="position:absolute; bottom:-16px; right:-16px; width:80px; height:80px; background:var(--navy); border-radius:4px; z-index:-1;"></div>
-    </div>
-
-    <!-- Text -->
-    <div class="reveal">
-      <div class="section-tag">Ihr Ansprechpartner</div>
-      <h2>Hinter Culix<br/>steckt ein Mensch.</h2>
-      <p style="font-size:1rem; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:1.5rem;">
-        Ich bin Resul Selimi – Gründer und Geschäftsführer von Culix. Mit über 15 Jahren Erfahrung in der Reinigungs- und Hauswartungsbranche kenne ich die Bedürfnisse meiner Kunden genau.
-      </p>
-      <p style="font-size:1rem; color:var(--muted); line-height:1.8; font-weight:300; margin-bottom:2rem;">
-        Bei Culix gibt es keine anonymen Callcenter – Sie erreichen mich direkt. Persönlich, zuverlässig und auf Augenhöhe.
-      </p>
-
-      <!-- Zitat -->
-      <div style="border-left:3px solid var(--blue); padding:1rem 1.5rem; background:white; border-radius:0 6px 6px 0; margin-bottom:2rem;">
-        <p style="font-size:1rem; color:var(--navy); font-style:italic; line-height:1.7; font-weight:500; margin:0;">
-          „Sauberkeit ist keine Frage des Budgets – sondern des Anspruchs. Dafür stehe ich mit meinem Namen."
-        </p>
-        <p style="font-size:0.72rem; color:var(--muted); margin-top:0.6rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;">– Resul Selimi</p>
-      </div>
-
-      <a href="tel:+41765008915" style="display:inline-flex; align-items:center; gap:0.7rem; background:var(--navy); color:white; text-decoration:none; padding:0.9rem 1.8rem; border-radius:4px; font-weight:700; font-size:0.92rem; transition:background 0.2s;"
-         onmouseover="this.style.background='#6B7280'" onmouseout="this.style.background='#2D3135'">
-        📞 Direkt mit Resul sprechen
-      </a>
-    </div>
-
   </div>
 </section>
 
 <!-- ABLAUF -->
-<section id="ablauf">
-  <div class="ablauf-intro">
-    <div><div class="section-tag">So funktioniert's</div><h2>In 3 Schritten zur sauberen Lösung</h2></div>
-    <p class="lead">Unkompliziert, schnell und transparent.</p>
+<section id="ablauf" style="background:var(--navy2)">
+  <div class="r" style="text-align:center;margin-bottom:3rem">
+    <div class="stag" style="justify-content:center">So einfach geht's</div>
+    <h2 style="color:white">In 3 Schritten<br/>zur sauberen Lösung.</h2>
   </div>
-  <div class="ablauf-grid">
-    <div class="step reveal"><div class="step-num">01</div><div class="step-bar"></div><h4>Anfrage & Offerte</h4><p>Per WhatsApp, Telefon oder E-Mail – kostenlose Offerte ohne Verpflichtung.</p></div>
-    <div class="step reveal"><div class="step-num">02</div><div class="step-bar"></div><h4>Termin vereinbaren</h4><p>Nach Bestätigung vereinbaren wir den Einsatz passend zu Ihren Wünschen.</p></div>
-    <div class="step reveal"><div class="step-num">03</div><div class="step-bar"></div><h4>Wir legen los</h4><p>Unser Team erscheint pünktlich und erledigt alles zu Ihrer vollsten Zufriedenheit.</p></div>
+  <div class="ablauf-steps">
+    <div class="astep r"><div class="astep-num">01</div><h4>Anfrage senden</h4><p>Per WhatsApp, Telefon oder E-Mail – kostenlos & unverbindlich.</p></div>
+    <div class="astep r"><div class="astep-num">02</div><h4>Offerte erhalten</h4><p>Innert 24h erhalten Sie eine transparente, massgeschneiderte Offerte.</p></div>
+    <div class="astep r"><div class="astep-num">03</div><h4>Wir legen los</h4><p>Unser Team erscheint pünktlich und erledigt alles zu Ihrer Zufriedenheit.</p></div>
   </div>
 </section>
 
 <!-- KONTAKT -->
-<section id="kontakt" style="background:var(--navy); padding:6rem 6%;">
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start;">
-
-    <!-- Links: Info -->
-    <div class="reveal">
-      <div class="section-tag" style="color:rgba(255,255,255,0.35);">Kontakt</div>
-      <h2 style="color:white;">Sprechen wir.</h2>
-      <p class="lead">Schreiben Sie uns – wir antworten schnell und unkompliziert.</p>
-      <div class="kontakt-info" style="margin-top:2rem;">
-        <div class="kontakt-item"><div class="kontakt-icon">📞</div><div><h4>Telefon</h4><a href="tel:+41765008915">076 500 89 15</a></div></div>
-        <div class="kontakt-item"><div class="kontakt-icon">✉️</div><div><h4>E-Mail</h4><a href="mailto:culix.hauswartung@gmail.com">culix.hauswartung@gmail.com</a></div></div>
-        <div class="kontakt-item"><div class="kontakt-icon">🕐</div><div><h4>Erreichbarkeit</h4><p>Mo–Fr 07:00–19:00 · Sa 08:00–14:00</p></div></div>
+<section id="kontakt">
+  <div class="kontakt-layout">
+    <div class="rl">
+      <div class="stag" style="color:rgba(255,255,255,0.35)">Kontakt</div>
+      <h2 style="color:white">Sprechen wir.</h2>
+      <p class="lead" style="color:rgba(255,255,255,0.5)">Wir melden uns innerhalb von 24 Stunden – versprochen.</p>
+      <div class="kontakt-info">
+        <div class="kitem"><div class="kitem-icon">📞</div><div><h4>Telefon</h4><a href="tel:+41765008915">076 500 89 15</a></div></div>
+        <div class="kitem"><div class="kitem-icon">✉️</div><div><h4>E-Mail</h4><a href="mailto:culix.hauswartung@gmail.com">culix.hauswartung@gmail.com</a></div></div>
+        <div class="kitem"><div class="kitem-icon">🕐</div><div><h4>Erreichbarkeit</h4><p>Mo–Fr 07:00–19:00 · Sa 08:00–14:00</p></div></div>
       </div>
     </div>
-
-    <!-- Rechts: Sprechblase Chat-Style -->
-    <div class="reveal" style="display:flex; flex-direction:column; gap:0.8rem; padding-top:2rem;">
-
-      <!-- Eingehende Sprechblase (Kunde) -->
-      <div style="display:flex; align-items:flex-end; gap:0.6rem;">
-        <div style="width:28px; height:28px; background:rgba(255,255,255,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.8rem; flex-shrink:0;">👤</div>
-        <div style="background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-radius:14px 14px 14px 3px; padding:0.7rem 1rem; max-width:85%;">
-          <p style="color:rgba(255,255,255,0.8); font-size:0.8rem; line-height:1.5; margin:0;">Hallo Culix, ich möchte eine <strong style="color:white;">Offerte</strong> anfragen.</p>
-          <p style="color:rgba(255,255,255,0.25); font-size:0.6rem; margin:0.3rem 0 0; text-align:right;">Heute</p>
+    <div class="rr">
+      <div class="chat-wrap">
+        <div class="chat-bubble-in">
+          <div class="chat-av">👤</div>
+          <div class="bubble-in"><p>Hallo Culix, ich möchte eine <strong>Offerte</strong> anfragen.</p><div class="ts">Heute</div></div>
         </div>
-      </div>
-
-      <!-- Antwort Culix -->
-      <div style="display:flex; align-items:flex-end; gap:0.6rem; justify-content:flex-end;">
-        <div style="background:var(--blue); border-radius:14px 14px 3px 14px; padding:0.7rem 1rem; max-width:85%;">
-          <p style="color:white; font-size:0.8rem; line-height:1.5; margin:0;">Gerne! <strong>Wie erreichen wir Sie?</strong> 😊</p>
-          <p style="color:rgba(255,255,255,0.45); font-size:0.6rem; margin:0.3rem 0 0; text-align:right;">Culix · Jetzt</p>
+        <div class="chat-bubble-out">
+          <div class="bubble-out"><p>Gerne! 😊 Wie darf ich Sie erreichen?</p><div class="ts">Culix · Jetzt</div></div>
+          <div class="chat-av-culix">C✦</div>
         </div>
-        <div style="width:28px; height:28px; background:var(--blue); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-          <svg viewBox="0 0 24 24" fill="none" width="14" height="14"><path d="M12 2L2 9v13h7v-7h6v7h7V9L12 2z" fill="white"/></svg>
+        <div class="chat-actions">
+          <p style="color:rgba(255,255,255,0.28);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.2rem">Wählen Sie:</p>
+          <a href="tel:+41765008915" class="chat-btn chat-btn-tel">
+            <div class="cbicon cbicon-tel">📞</div>
+            <div><div class="cb-title">Anrufen</div><div class="cb-sub">076 500 89 15</div></div>
+            <span class="cb-arrow">→</span>
+          </a>
+          <a href="https://wa.me/41765008915?text=Hallo%20Culix%2C%20ich%20m%C3%B6chte%20gerne%20eine%20Offerte%20anfragen." target="_blank" class="chat-btn chat-btn-wa">
+            <div class="cbicon cbicon-wa"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M23.5 8.5C21.6 6.6 19.1 5.5 16.4 5.5c-5.5 0-10 4.5-10 10 0 1.8.5 3.5 1.4 5L5.5 26.5l6.2-1.6c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10 0-2.7-1-5.2-2.9-7.1zm-7.1 15.4c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.8.9-3.1-.2-.3c-.9-1.3-1.3-2.9-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2 2.2 0 4.3.9 5.8 2.4 1.6 1.6 2.4 3.6 2.4 5.8.1 4.6-3.6 8.5-8 8.5zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.1 1.7 2.7 4.2 3.7.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z" fill="white"/></svg></div>
+            <div><div class="cb-title">WhatsApp</div><div class="cb-sub">Schnell & unkompliziert</div></div>
+            <span class="cb-arrow" style="color:rgba(255,255,255,0.5)">→</span>
+          </a>
+          <a href="mailto:culix.hauswartung@gmail.com" class="chat-btn chat-btn-em">
+            <div class="cbicon cbicon-em">✉️</div>
+            <div><div class="cb-title">E-Mail</div><div class="cb-sub">culix.hauswartung@gmail.com</div></div>
+            <span class="cb-arrow">→</span>
+          </a>
         </div>
-      </div>
-
-      <!-- Auswahlbuttons -->
-      <div style="display:flex; flex-direction:column; gap:0.5rem; margin-top:0.3rem; padding-left:34px;">
-        <p style="color:rgba(255,255,255,0.3); font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.1rem;">Wählen Sie:</p>
-
-        <a href="tel:+41765008915" style="display:flex; align-items:center; gap:0.8rem; background:white; border-radius:10px; padding:0.75rem 1rem; text-decoration:none; transition:transform 0.15s; box-shadow:0 3px 12px rgba(0,0,0,0.15);"
-           onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">
-          <div style="width:30px;height:30px;background:#f0f4f8;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;">📞</div>
-          <div><div style="font-size:0.82rem;font-weight:700;color:var(--navy);">Anrufen</div><div style="font-size:0.68rem;color:var(--muted);">076 500 89 15</div></div>
-          <div style="margin-left:auto;color:var(--blue);font-size:0.9rem;">→</div>
-        </a>
-
-        <a href="https://wa.me/41765008915?text=Hallo%20Culix%2C%20ich%20m%C3%B6chte%20gerne%20eine%20Offerte%20anfragen." target="_blank" style="display:flex; align-items:center; gap:0.8rem; background:#25d366; border-radius:10px; padding:0.75rem 1rem; text-decoration:none; transition:transform 0.15s; box-shadow:0 3px 12px rgba(37,211,102,0.25);"
-           onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">
-          <div style="width:30px;height:30px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-            <svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M23.5 8.5C21.6 6.6 19.1 5.5 16.4 5.5c-5.5 0-10 4.5-10 10 0 1.8.5 3.5 1.4 5L5.5 26.5l6.2-1.6c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10 0-2.7-1-5.2-2.9-7.1zm-7.1 15.4c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.8.9-3.1-.2-.3c-.9-1.3-1.3-2.9-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2 2.2 0 4.3.9 5.8 2.4 1.6 1.6 2.4 3.6 2.4 5.8.1 4.6-3.6 8.5-8 8.5zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.1 1.7 2.7 4.2 3.7.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z" fill="white"/></svg>
-          </div>
-          <div><div style="font-size:0.82rem;font-weight:700;color:white;">WhatsApp</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.75);">Schnell & unkompliziert</div></div>
-          <div style="margin-left:auto;color:rgba(255,255,255,0.7);font-size:0.9rem;">→</div>
-        </a>
-
-        <a href="mailto:culix.hauswartung@gmail.com" style="display:flex; align-items:center; gap:0.8rem; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:0.75rem 1rem; text-decoration:none; transition:transform 0.15s;"
-           onmouseover="this.style.transform='translateX(4px)'" onmouseout="this.style.transform='translateX(0)'">
-          <div style="width:30px;height:30px;background:rgba(255,255,255,0.07);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;">✉️</div>
-          <div><div style="font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.75);">E-Mail</div><div style="font-size:0.68rem;color:rgba(255,255,255,0.35);">culix.hauswartung@gmail.com</div></div>
-          <div style="margin-left:auto;color:rgba(255,255,255,0.2);font-size:0.9rem;">→</div>
-        </a>
       </div>
     </div>
-
   </div>
 </section>
 
 <div class="disclaimer">
-  Alle Angaben dienen der allgemeinen Information. Preise und Leistungsumfang werden individuell per Offerte vereinbart und sind nicht verbindlich. Culix Reinigung & Hauswartung übernimmt keine Haftung für Schäden aus der Nutzung dieser Website. © 2025 Culix
+  Alle Angaben dienen der allgemeinen Information. Preise werden individuell per Offerte vereinbart. Culix Reinigung & Hauswartung übernimmt keine Haftung für Schäden aus der Nutzung dieser Website. © 2025 Culix
 </div>
 
 <footer>
-  <div><strong style="color:rgba(255,255,255,0.7);">Culix Reinigung & Hauswartung</strong></div>
+  <div><strong style="color:rgba(255,255,255,0.6)">Culix Reinigung & Hauswartung</strong> · Resul Selimi</div>
   <div class="footer-links">
-    <a href="#leistungen">Leistungen</a>
+    <a href="#dienst">Dienstleistungen</a>
+    <a href="#warum">Über uns</a>
     <a href="#kontakt">Kontakt</a>
-    <a href="mailto:culix.hauswartung@gmail.com">E-Mail</a>
     <a href="datenschutz.html">Datenschutz</a>
   </div>
 </footer>
 
-<!-- WHATSAPP BUBBLE -->
-<div class="wa-bubble">
-  <div class="wa-tooltip">💬 Offerte anfragen – kostenlos!</div>
-  <a href="https://wa.me/41765008915?text=Hallo%20Culix%2C%20ich%20m%C3%B6chte%20gerne%20eine%20Offerte%20anfragen." target="_blank" class="wa-bubble-btn">
-    <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M23.5 8.5C21.6 6.6 19.1 5.5 16.4 5.5c-5.5 0-10 4.5-10 10 0 1.8.5 3.5 1.4 5L5.5 26.5l6.2-1.6c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10 0-2.7-1-5.2-2.9-7.1zm-7.1 15.4c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.8.9-3.1-.2-.3c-.9-1.3-1.3-2.9-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2 2.2 0 4.3.9 5.8 2.4 1.6 1.6 2.4 3.6 2.4 5.8.1 4.6-3.6 8.5-8 8.5zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.1 1.7 2.7 4.2 3.7.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z" fill="white"/></svg>
+<!-- WHATSAPP FLOAT -->
+<div class="wa-float">
+  <div class="wa-tip">💬 Offerte anfragen – kostenlos!</div>
+  <a href="https://wa.me/41765008915?text=Hallo%20Culix%2C%20ich%20m%C3%B6chte%20gerne%20eine%20Offerte%20anfragen." target="_blank" class="wa-btn">
+    <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M23.5 8.5C21.6 6.6 19.1 5.5 16.4 5.5c-5.5 0-10 4.5-10 10 0 1.8.5 3.5 1.4 5L5.5 26.5l6.2-1.6c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10 0-2.7-1-5.2-2.9-7.1zm-7.1 15.4c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.8.9-3.1-.2-.3c-.9-1.3-1.3-2.9-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2 2.2 0 4.3.9 5.8 2.4 1.6 1.6 2.4 3.6 2.4 5.8.1 4.6-3.6 8.5-8 8.5zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.1 0 1.2.9 2.4 1 2.6.1.1 1.7 2.7 4.2 3.7.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.1-.2-.2-.4-.3z" fill="white"/></svg>
     WhatsApp
   </a>
 </div>
 
 <script>
-  // Nav scroll
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
-  });
+  // Nav
+  window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>40));
+  function toggleNav(){document.getElementById('nav-menu').classList.toggle('open')}
+  document.querySelectorAll('#nav-menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav-menu').classList.remove('open')));
 
-  // Hamburger
-  function toggleMenu() { document.getElementById('nav-menu').classList.toggle('open'); }
-  document.querySelectorAll('#nav-menu a').forEach(a => a.addEventListener('click', () => document.getElementById('nav-menu').classList.remove('open')));
-
-  // Reveal on scroll
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  // ─── COUNTER ANIMATION ───
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.count);
-    const suffix = el.dataset.suffix || '';
-    const duration = 1800;
-    const start = performance.now();
-    const easeOut = t => 1 - Math.pow(1 - t, 3);
-    function step(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      el.textContent = Math.floor(easeOut(progress) * target) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  const counterObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting && e.target.dataset.count) {
-        animateCounter(e.target);
-        counterObs.unobserve(e.target);
+  // Scroll reveal
+  const ro=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const delay=parseInt(e.target.dataset.d||0);
+        setTimeout(()=>e.target.classList.add('v'),delay);
+        ro.unobserve(e.target);
       }
     });
-  }, { threshold: 0.5 });
-  document.querySelectorAll('[data-count]').forEach(el => counterObs.observe(el));
+  },{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+
+  document.querySelectorAll('.r,.rl,.rr,.rs').forEach((el,i)=>{
+    const siblings=[...el.parentElement.querySelectorAll('.r,.rl,.rr,.rs')];
+    const idx=siblings.indexOf(el);
+    if(idx>0)el.dataset.d=idx*75;
+    ro.observe(el);
+  });
+
+  // 3D tilt
+  function tilt(el,e){
+    const r=el.getBoundingClientRect();
+    const x=e.clientX-r.left,y=e.clientY-r.top;
+    const cx=r.width/2,cy=r.height/2;
+    const rX=((y-cy)/cy)*-10,rY=((x-cx)/cx)*10;
+    el.style.transform=`perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg) scale(1.04)`;
+    el.style.boxShadow=`0 40px 80px rgba(0,0,0,0.5),${-rY*2}px ${rX*2}px 40px rgba(21,84,240,0.2)`;
+  }
+  function resetTilt(el){
+    el.style.transform='perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+    el.style.boxShadow='0 24px 64px rgba(0,0,0,0.4)';
+  }
+
+  // Counter
+  function counter(el){
+    const t=parseInt(el.dataset.count),s=el.dataset.suffix||'';
+    const d=1800,start=performance.now();
+    const ease=t=>1-Math.pow(1-t,3);
+    (function step(now){
+      const p=Math.min((now-start)/d,1);
+      el.textContent=Math.floor(ease(p)*t)+s;
+      if(p<1)requestAnimationFrame(step);
+    })(performance.now());
+  }
+  const co=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting&&x.target.dataset.count){counter(x.target);co.unobserve(x.target)}}),{threshold:0.5});
+  document.querySelectorAll('[data-count]').forEach(el=>co.observe(el));
 </script>
 </body>
 </html>
