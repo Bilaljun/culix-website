@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://bilaljun.github.io/culix-website/</loc>
-  </url>
-  <url>
-    <loc>https://bilaljun.github.io/culix-website/datenschutz.html</loc>
-  </url>
+  <url><loc>https://bilaljun.github.io/culix-website/</loc></url>
+  <url><loc>https://bilaljun.github.io/culix-website/datenschutz.html</loc></url>
+  <url><loc>https://bilaljun.github.io/culix-website/leistungen/treppenhausreinigung.html</loc></url>
+  <url><loc>https://bilaljun.github.io/culix-website/leistungen/hauswartung.html</loc></url>
+  <url><loc>https://bilaljun.github.io/culix-website/leistungen/wohnungs-und-umzugsreinigung.html</loc></url>
+  <url><loc>https://bilaljun.github.io/culix-website/leistungen/buero-und-gewerbereinigung.html</loc></url>
+  <url><loc>https://bilaljun.github.io/culix-website/leistungen/fenster-und-glasreinigung.html</loc></url>
+  <url><loc>https://bilaljun.github.io/culix-website/leistungen/umgebungs-und-arealpflege.html</loc></url>
+  <url><loc>https://bilaljun.github.io/culix-website/leistungen/gartenpflege.html</loc></url>
+  <url><loc>https://bilaljun.github.io/culix-website/leistungen/kleinere-unterhaltsarbeiten.html</loc></url>
+  <url><loc>https://bilaljun.github.io/culix-website/leistungen/winterdienst.html</loc></url>
 </urlset>
